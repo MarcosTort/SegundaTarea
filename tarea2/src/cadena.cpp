@@ -151,21 +151,90 @@ TCadena removerDeCadena(TLocalizador loc, TCadena cad) {
     loc->siguiente->anterior = NULL;
     delete loc;
   }
+  return cad;
 }
 
 void imprimirCadena(TCadena cad) {
+  TCadena a = cad;
+  TLocalizador l = a->inicio;
+  if(!esVaciaCadena){
+    if(l->siguiente!=NULL){
+
+      while (esLocalizador(l->siguiente)){
+        char *dat = infoATexto(l->dato);
+        printf(dat);
+        l = l->siguiente;
+        delete dat;
+      }//end while
+    }//end segundo if
+    else{
+      char *dat2 = infoATexto(a->inicio->dato);
+      delete dat2;
+    }//end segundo else
+  }//end primer if
+  else{
+    printf("\n");
+  }//end primer else
 }
 
 TLocalizador kesimo(nat k, TCadena cad) {
-  return NULL;
+  TLocalizador reco = cad->inicio;
+  int j = 1;
+  while(reco->siguiente != NULL && j != k){
+    reco = reco->siguiente;
+    j++;
+  }
+  if (k>0 || k > j){
+    return NULL;
+  }
+  else{
+    if (j == k && reco != NULL){
+      return reco;
+    }
+    else{
+      return NULL;
+    }
+  }
 }
 
 TCadena insertarSegmentoDespues(TCadena sgm, TLocalizador loc, TCadena cad) {
-  return NULL;
+  assert(localizadorEnCadena(loc, cad));
+  if(!esVaciaCadena(sgm)){
+    if(!esVaciaCadena(cad)){
+      if(finalCadena(cad) != loc){
+        sgm->inicio->anterior = loc->siguiente;
+        sgm->final->siguiente = loc;
+        loc->siguiente->anterior = sgm->final;
+        loc->siguiente = sgm->inicio;
+      }
+      else{
+        sgm->inicio->anterior = loc->siguiente;
+        sgm->final->siguiente = loc;
+        cad->final = sgm->final;
+        loc->siguiente = sgm->inicio;
+      }
+    }
+    else{
+      //cuando la cad es vacia
+    }
+  }
+  sgm->inicio = NULL;
+  sgm->final = NULL;
+  return cad;
 }
-
 TCadena copiarSegmento(TLocalizador desde, TLocalizador hasta, TCadena cad) {
-  return NULL;
+  assert(esVaciaCadena(cad)||precedeEnCadena(desde, hasta, cad));
+  TCadena copia = crearCadena();
+  if(!esVaciaCadena(cad))
+  {
+    TInfo dato;
+    TLocalizador loc = desde;
+    while(loc != siguiente(hasta, cad)){
+      dato = copiaInfo((loc->dato));//no comparte memoria con cad
+      loc = siguiente(loc, cad);
+    }
+  }
+  return copia;
 }
 
 TCadena borrarSegmento(TLocalizador desde, TLocalizador hasta, TCadena cad) {
@@ -199,7 +268,6 @@ TLocalizador anteriorClave(nat clave, TLocalizador loc, TCadena cad) {
 TLocalizador menorEnCadena(TLocalizador loc, TCadena cad) {
   return NULL;
 }
-
 
 
 
