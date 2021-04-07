@@ -109,7 +109,6 @@ bool esInicioCadena(TLocalizador loc, TCadena cad) {
   }
 }
 
-
 TCadena insertarAlFinal(TInfo i, TCadena cad) {
   nodoCadena *entrante = new nodoCadena;
   entrante->dato = i;
@@ -222,6 +221,7 @@ TCadena insertarSegmentoDespues(TCadena sgm, TLocalizador loc, TCadena cad) {
   sgm->final = NULL;
   return cad;
 }
+
 TCadena copiarSegmento(TLocalizador desde, TLocalizador hasta, TCadena cad) {
   assert(esVaciaCadena(cad)||precedeEnCadena(desde, hasta, cad));
   TCadena copia = crearCadena();
@@ -238,46 +238,95 @@ TCadena copiarSegmento(TLocalizador desde, TLocalizador hasta, TCadena cad) {
 }
 
 TCadena borrarSegmento(TLocalizador desde, TLocalizador hasta, TCadena cad) {
-  return NULL;
+  TLocalizador eliminado;
+  while (hasta != desde){
+    eliminado = desde;
+    desde = desde->siguiente;
+    removerDeCadena(eliminado, cad);
+  }
+  removerDeCadena(hasta, cad);
+  return cad;
 }
 
 TCadena cambiarEnCadena(TInfo i, TLocalizador loc, TCadena cad) {
-  return NULL;
+  assert(localizadorEnCadena);
+  loc->dato = i;
+  return cad;
 }
 
 TCadena intercambiar(TLocalizador loc1, TLocalizador loc2, TCadena cad) {
-  return NULL;
+  assert(localizadorEnCadena(loc1, cad)&&localizadorEnCadena(loc1, cad));
+  TInfo mem = infoCadena(loc1, cad);
+  loc1->dato = infoCadena(loc2, cad);
+  loc2->dato = mem;
+  return cad;
 }
 
 bool localizadorEnCadena(TLocalizador loc, TCadena cad) {
-  return false;
+  if(esVaciaCadena(cad)){
+    return false;
+  }
+  else{
+    TLocalizador aux = cad->inicio;
+    while (esLocalizador(aux) && aux != loc){
+      aux = aux->siguiente;
+    }
+    return aux = loc;
+  }
 }
 
 bool precedeEnCadena(TLocalizador loc1, TLocalizador loc2, TCadena cad) {
-  return false;
+  if(esVaciaCadena(cad) || localizadorEnCadena(loc1, cad)){
+    return false;
+  }
+  else{
+    TLocalizador precursor = loc1;
+    while(esLocalizador(precursor) && (loc2 != precursor)){
+      precursor = precursor->siguiente;
+    }
+    return precursor == loc2;
+  }
 }
 
 TLocalizador siguienteClave(nat clave, TLocalizador loc, TCadena cad) {
-  return NULL;
+  assert(localizadorEnCadena(loc, cad));
+
+  if(esVaciaCadena(cad)){return NULL;}
+  else{
+    TLocalizador rec = loc;
+    while(esLocalizador(loc) && (natInfo(rec->dato) != clave)){
+      rec = rec->siguiente;
+    }
+    if(natInfo(rec->dato) == clave)
+      {return rec;}
+    else
+      {return NULL;}
+  }
 }
 
 TLocalizador anteriorClave(nat clave, TLocalizador loc, TCadena cad) {
-  return NULL;
+  assert(localizadorEnCadena(loc, cad));
+
+  if(esVaciaCadena(cad)){return NULL;}
+  else{
+    TLocalizador rec = loc;
+    while(esLocalizador(loc) && (natInfo(rec->dato) != clave)){
+      rec = rec->anterior;
+    }
+    if(natInfo(rec->dato) == clave)
+      {return rec;}
+    else
+      {return NULL;}
+  }
 }
 
 TLocalizador menorEnCadena(TLocalizador loc, TCadena cad) {
-  return NULL;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
+  assert(localizadorEnCadena(loc, cad));
+  TLocalizador res = loc;
+	while (esLocalizador(siguiente(loc, cad))) {
+	 loc = siguiente(loc, cad);
+	 if (natInfo(infoCadena(loc, cad)) < natInfo(infoCadena(res, cad)))
+	  res = loc;
+	 }
+	return res;
+	}
