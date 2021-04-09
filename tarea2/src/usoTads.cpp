@@ -8,14 +8,14 @@
   El tiempo de ejecución en el peor caso es O(n), siendo 'n' la cantidad de
   elementos de 'cad'.
  */
-bool pertenece(nat elem, TCadena cad);
+bool pertenece(nat elem, TCadena cad){return true;}
 
 /*
   Devuelve la cantidad de elementos de 'cad'.
   El tiempo de ejecución en el peor caso es O(n), siendo 'n' la cantidad de
   elementos de 'cad'.
  */
-nat longitud(TCadena cad);
+nat longitud(TCadena cad){return 0;}
 
 /*
   Devuelve 'true' si y solo si 'cad' está ordenada de forma no dereciente
@@ -24,7 +24,7 @@ nat longitud(TCadena cad);
   El tiempo de ejecución en el peor caso es O(n), siendo 'n' la cantidad de
   elementos de 'cad'.
  */
-bool estaOrdenadaPorNaturales(TCadena cad);
+bool estaOrdenadaPorNaturales(TCadena cad){return true;}
 
 /*
   Devuelve 'true' si y solo si los componentes naturales de algún par de
@@ -32,7 +32,7 @@ bool estaOrdenadaPorNaturales(TCadena cad);
   El tiempo de ejecución en el peor caso es O(n^2), siendo 'n' la cantidad de
   elementos de 'cad'.
  */
-bool hayNatsRepetidos(TCadena cad);
+bool hayNatsRepetidos(TCadena cad){return true;}
 
 /*
   Devuelve 'true' si y solo si 'c1' y 'c2' son iguales (es decir, si los
@@ -41,7 +41,7 @@ bool hayNatsRepetidos(TCadena cad);
   El tiempo de ejecución en el peor caso es O(n1 + n2), siendo 'n1' u 'n2' la
   cantidad de elementos de 'c1' y 'c2' respectivamente.
  */
-bool sonIgualesCadena(TCadena c1, TCadena c2);
+bool sonIgualesCadena(TCadena c1, TCadena c2){return true;}
 
 /*
   Devuelve el resultado de concatenar 'c2' después de 'c1'.
@@ -49,7 +49,7 @@ bool sonIgualesCadena(TCadena c1, TCadena c2);
   El tiempo de ejecución en el peor caso es O(n1 + n2), siendo 'n1' u 'n2' la
   cantidad de elementos de 'c1' y 'c2' respectivamente.
  */
-TCadena concatenar(TCadena c1, TCadena c2);
+TCadena concatenar(TCadena c1, TCadena c2){return 0;}
 
 /*
   Se ordena 'cad' de manera creciente según los componentes naturales de sus
@@ -62,7 +62,7 @@ TCadena concatenar(TCadena c1, TCadena c2);
   El tiempo de ejecución en el peor caso es O(n^2), siendo 'n' la cantidad de
   elementos de 'cad'.
  */
-TCadena ordenar(TCadena cad);
+TCadena ordenar(TCadena cad){return 0;}
 
 /*
   Cambia todas las ocurrencias de 'original' por 'nuevo' en los elementos
@@ -72,7 +72,7 @@ TCadena ordenar(TCadena cad);
   El tiempo de ejecución en el peor caso es O(n), siendo 'n' la cantidad de
   elementos de 'cad'.
  */
-TCadena cambiarTodos(nat original, nat nuevo, TCadena cad);
+TCadena cambiarTodos(nat original, nat nuevo, TCadena cad){return 0;}
 
 /*
   Devuelve la 'TCadena' de elementos de 'cad' que cumplen
@@ -85,4 +85,4 @@ TCadena cambiarTodos(nat original, nat nuevo, TCadena cad);
   El tiempo de ejecución en el peor caso es O(n), siendo 'n' la cantidad de
   elementos de 'cad'.
  */
-TCadena subCadena(nat menor, nat mayor, TCadena cad)
+TCadena subCadena(nat menor, nat mayor, TCadena cad){return 0;}
