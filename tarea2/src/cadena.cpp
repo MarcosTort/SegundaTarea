@@ -144,12 +144,37 @@ TCadena insertarAntes(TInfo i, TLocalizador loc, TCadena cad) {
 
 TCadena removerDeCadena(TLocalizador loc, TCadena cad) {
   assert(localizadorEnCadena);
-  if(esInicioCadena(loc, cad)){
-    liberarInfo(loc->dato);
-    cad->inicio = loc->siguiente;
-    loc->siguiente->anterior = NULL;
-    delete loc;
-  }
+  TLocalizador aux = loc;
+
+	if (esInicioCadena(loc, cad)) {
+		//inicio
+		if (esLocalizador(loc->siguiente)) {
+      cad->inicio = aux->siguiente; 
+			aux->siguiente->anterior = NULL; 
+			liberarInfo(loc->dato);
+			delete loc;
+		} else {
+      cad->inicio = NULL;
+			cad->final = NULL;
+			liberarInfo(loc->dato);
+			delete loc;
+		}
+
+	} else {
+		if (!esFinalCadena(loc, cad)) {
+       //medio 
+			aux->anterior->siguiente = aux->siguiente;
+			aux->siguiente->anterior = aux->anterior;
+			liberarInfo(loc->dato);
+			delete loc;
+		} else {
+      //final 
+			cad->final = aux->anterior;
+			aux->anterior->siguiente = NULL;
+			liberarInfo(loc->dato);
+			delete loc;
+		}
+	}		
   return cad;
 }
 
@@ -227,10 +252,11 @@ TCadena copiarSegmento(TLocalizador desde, TLocalizador hasta, TCadena cad) {
   TCadena copia = crearCadena();
   if(!esVaciaCadena(cad))
   {
-    TInfo dato;
     TLocalizador loc = desde;
     while(loc != siguiente(hasta, cad)){
+      TInfo dato;
       dato = copiaInfo((loc->dato));//no comparte memoria con cad
+      insertarAlFinal(dato, copia);
       loc = siguiente(loc, cad);
     }
   }
