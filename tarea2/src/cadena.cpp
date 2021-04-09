@@ -39,7 +39,7 @@ void liberarCadena(TCadena cad) {
 }
 
 bool esVaciaCadena(TCadena cad) {
-    return cad->inicio = NULL;
+    return cad->inicio == NULL;
 }
 
 TLocalizador inicioCadena(TCadena cad) {
@@ -128,7 +128,7 @@ TCadena insertarAntes(TInfo i, TLocalizador loc, TCadena cad) {
   assert(localizadorEnCadena(loc, cad));
   nodoCadena *entrante = new nodoCadena;
   entrante->dato = i;
-  if(esInicioCadena){
+  if(esInicioCadena(loc, cad)){
     entrante->siguiente = loc;
     loc->anterior = entrante; 
     cad->inicio = entrante;
@@ -156,7 +156,7 @@ TCadena removerDeCadena(TLocalizador loc, TCadena cad) {
 void imprimirCadena(TCadena cad) {
   TCadena a = cad;
   TLocalizador l = a->inicio;
-  if(!esVaciaCadena){
+  if(!esVaciaCadena(cad)){
     if(l->siguiente!=NULL){
 
       while (esLocalizador(l->siguiente)){
@@ -178,8 +178,8 @@ void imprimirCadena(TCadena cad) {
 
 TLocalizador kesimo(nat k, TCadena cad) {
   TLocalizador reco = cad->inicio;
-  int j = 1;
-  while(reco->siguiente != NULL && j != k){
+  nat j = 1;
+  while((reco->siguiente != NULL )&& (j != k)){
     reco = reco->siguiente;
     j++;
   }
@@ -187,7 +187,7 @@ TLocalizador kesimo(nat k, TCadena cad) {
     return NULL;
   }
   else{
-    if (j == k && reco != NULL){
+    if ((j == k )&& (reco != NULL)){
       return reco;
     }
     else{
@@ -271,7 +271,7 @@ bool localizadorEnCadena(TLocalizador loc, TCadena cad) {
     while (esLocalizador(aux) && aux != loc){
       aux = aux->siguiente;
     }
-    return aux = loc;
+    return aux == loc;
   }
 }
 
