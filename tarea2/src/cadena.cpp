@@ -125,7 +125,7 @@ TCadena insertarAlFinal(TInfo i, TCadena cad) {
 }
 
 TCadena insertarAntes(TInfo i, TLocalizador loc, TCadena cad) {
-  assert(localizadorEnCadena(loc, cad));
+  if (localizadorEnCadena(loc, cad)){
   nodoCadena *entrante = new nodoCadena;
   entrante->dato = i;
   if(esInicioCadena(loc, cad)){
@@ -140,6 +140,9 @@ TCadena insertarAntes(TInfo i, TLocalizador loc, TCadena cad) {
     loc->anterior = entrante;
     loc->anterior->siguiente = entrante;
   }
+  return cad;
+  }
+  return cad;
 }
 
 TCadena removerDeCadena(TLocalizador loc, TCadena cad) {
@@ -186,7 +189,7 @@ void imprimirCadena(TCadena cad) {
 
       while (esLocalizador(l->siguiente)){
         char *dat = infoATexto(l->dato);
-        printf(dat);
+        printf("%s", dat);
         l = l->siguiente;
         delete dat;
       }//end while
