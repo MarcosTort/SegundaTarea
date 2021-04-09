@@ -28,7 +28,7 @@
 all: principal
 
 # Objetivos que no son archivos.
-.PHONY: all clean_bin clean_test clean testing entrega uso_memoria
+.PHONY: all clean_bin clean_test clean testing entrega
 
 MODULOS = utils info cadena usoTads
 
@@ -45,7 +45,7 @@ EXT = cpp
 CC = g++ # gcc -x c 
 LD = g++ # gcc
 # opciones de compilación
-CCFLAGS = -Wall -Werror -I$(HDIR) -g  #-DNDEBUG
+CCFLAGS = -Wall -Werror -I$(HDIR) -g  -DNDEBUG
 # -DNDEBUG
 # se agrega esta opción para que las llamadas a assert no hagan nada.
 
@@ -66,17 +66,32 @@ $(ODIR)/$(PRINCIPAL).o:$(PRINCIPAL).$(EXT)
 	@printf 'Compilando $(<) \n'; \
 	$(CC) $(CCFLAGS) -c $< -o $@
 
-# cada .o depende de su .c
 
-$(ODIR)/%.o: $(CPPDIR)/%.$(EXT) $(HDIR)/%.h
-	$(CC) $(CCFLAGS) -c $< -o $@
+
+
+$(ODIR)/%.o: $(CPPDIR)/%.$(EXT)  $(HDIR)/%.h
+	@printf 'Compilando $(<) \n'; \
+	$(eval resr = $(shell grep -n -P '_rep_(?!$(basename $(notdir $<)))' $<)) \
+	$(eval resh = $(subst #,\#,$(shell grep -n -P 'include(?!.*[.]h)' $< ))) \
+	$(eval resc = $(shell grep -n 'nodoCadena' $< )) \
+	if [ -z "$(resr)" ] && [ -z "$(resh)" ] && { [ -z "$(resc)" ] || [ -n "$(findstring cadena, $<)" ] ; }; \
+	then $(CC) $(CCFLAGS) -c $< -o $@ ; \
+	else \
+		if [ -n "$(resh)" ]; then printf '  "$(resh)": Include de archivos que no son .h \n' ; fi ; \
+		if [ -n "$(resr)" ]; then printf '  "$(resr)": Uso de representación de otros tipos\n' ; fi ; \
+		if [ -n "$(resc)" ]; then printf '  "$(resc)": Uso de nodoCadena\n' ; fi ; \
+		printf '    NO SE COMPILO $(<)\n' ; \
+		rm -f $@; \
+	fi
+
 
 # $^ se expande para tranformarse en todas las dependencias
-$(EJECUTABLE): $(ODIR)/$(PRINCIPAL).o $(OS)
+$(EJECUTABLE):$(ODIR)/$(PRINCIPAL).o $(OS)
+	@printf 'Compilando y enlazando $(@) \n'; \
 	$(LD) $(CCFLAGS) $^ -o $@
-	
+
 # casos de prueba
-CASOS = 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 
+CASOS = 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24
 
 
 # cadena de archivos, con directorio y extensión
@@ -90,7 +105,7 @@ $(SALS):$(EJECUTABLE)
 # ejecución de los otros casos
 $(TESTDIR)/%.sal:$(TESTDIR)/%.in
 	-timeout 4 valgrind -q --leak-check=full ./$(EJECUTABLE) < $< > $@ 2>&1
-	@if [ $$(stat -L -c %s $@) -ge 10000 ]; then \
+	@if [ $$(stat -L -c %s $@) -ge 20000 ]; then \
 		echo "tamaño excedido" > $@;\
 	fi
 
@@ -147,5 +162,4 @@ clean:clean_test clean_bin
 
 
 
-check-syntax:
-	gcc -o nul -S ${CHK_SOURCES}
+
