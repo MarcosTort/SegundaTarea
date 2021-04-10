@@ -115,14 +115,16 @@ bool esInicioCadena(TLocalizador loc, TCadena cad) {
 
 TCadena insertarAlFinal(TInfo i, TCadena cad) {
   nodoCadena *entrante = new nodoCadena;
-  entrante->dato = i;
-  entrante->anterior = cad->final;
   entrante->siguiente = NULL;
-  if(esVaciaCadena(cad)){
-    cad->inicio = entrante;
+  entrante->anterior = cad->final;
+  entrante->dato = i;
+  if(cad->final != NULL){
+    assert(cad->inicio != NULL);
+	  cad->final->siguiente = entrante;
   }
   else{
-    cad->final->siguiente = entrante;
+    assert(cad->inicio == NULL);
+	  cad->inicio = entrante;
   }
   cad->final = entrante;
   return cad;
