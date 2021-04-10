@@ -61,10 +61,11 @@ TLocalizador finalCadena(TCadena cad) {
 }
 
 TInfo infoCadena(TLocalizador loc, TCadena cad) {
-  assert(localizadorEnCadena(loc, cad));
+  if(localizadorEnCadena(loc, cad)){
   TInfo salida;
   salida = loc->dato;
   return salida;
+  }
 }
 
 TLocalizador siguiente(TLocalizador loc, TCadena cad) {
