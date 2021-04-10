@@ -118,12 +118,10 @@ TCadena insertarAlFinal(TInfo i, TCadena cad) {
   entrante->siguiente = NULL;
   entrante->anterior = cad->final;
   entrante->dato = i;
-  if(cad->final != NULL){
-    assert(cad->inicio != NULL);
+  if(!esVaciaCadena(cad)){
 	  cad->final->siguiente = entrante;
   }
   else{
-    assert(cad->inicio == NULL);
 	  cad->inicio = entrante;
   }
   cad->final = entrante;
