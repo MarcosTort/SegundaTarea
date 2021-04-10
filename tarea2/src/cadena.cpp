@@ -138,7 +138,6 @@ TCadena insertarAntes(TInfo i, TLocalizador loc, TCadena cad) {
     loc->anterior = entrante;
     loc->anterior->siguiente = entrante;
   }
-  return cad;
   }
   return cad;
 }
