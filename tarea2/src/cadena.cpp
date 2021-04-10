@@ -230,7 +230,7 @@ TLocalizador kesimo(nat k, TCadena cad) {
 }
 
 TCadena insertarSegmentoDespues(TCadena sgm, TLocalizador loc, TCadena cad) {
-  assert(localizadorEnCadena(loc, cad));
+  assert(localizadorEnCadena(loc, cad) || localizadorEnCadena(loc, cad));
   if(!esVaciaCadena(sgm)){
     if(!esVaciaCadena(cad)){
       if(finalCadena(cad) != loc){
