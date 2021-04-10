@@ -69,16 +69,22 @@ TInfo infoCadena(TLocalizador loc, TCadena cad) {
 
 TLocalizador siguiente(TLocalizador loc, TCadena cad) {
     assert(localizadorEnCadena(loc, cad));
+    if (finalCadena(cad) != loc){
+    
     TLocalizador aux = loc->siguiente;
     return aux;
+  }
+  else{return NULL;}
 }
 
 TLocalizador anterior(TLocalizador loc, TCadena cad) {
   assert(localizadorEnCadena(loc, cad));
+  if (inicioCadena(cad) != loc){
     TLocalizador aux = loc->siguiente;
     return aux;
+  }
+  else{return NULL;}
 }
-
 bool esFinalCadena(TLocalizador loc, TCadena cad) {
   if(esVaciaCadena(cad)){
     return false;
