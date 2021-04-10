@@ -251,7 +251,6 @@ TCadena insertarSegmentoDespues(TCadena sgm, TLocalizador loc, TCadena cad) {
       cad->final = sgm->final;   //cuando la cad es vacia
     }
   }
-  else{return cad;}
   sgm->inicio = NULL;
   sgm->final = NULL;
   return cad;
