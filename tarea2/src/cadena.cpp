@@ -208,9 +208,8 @@ void imprimirCadena(TCadena cad) {
 TLocalizador kesimo(nat k, TCadena cad) {
   TLocalizador reco = cad->inicio;
   nat j = 1;
-  if (k<=0){
-
-    
+  if (k>0){
+	  
     while((reco != NULL )&& (j < k)){
       reco = reco->siguiente;
       j++;
