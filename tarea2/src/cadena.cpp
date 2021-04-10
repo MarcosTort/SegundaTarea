@@ -198,13 +198,11 @@ void imprimirCadena(TCadena cad) {
     }//end segundo if
     else{
       char *dat2 = infoATexto(a->inicio->dato);
+      printf("%s", dat2);
       delete dat2;
     }//end segundo else
-    printf("\n");
   }//end primer if
-  else{
-    printf("\n");
-  }//end primer else
+  printf("\n");
 }
 
 TLocalizador kesimo(nat k, TCadena cad) {
