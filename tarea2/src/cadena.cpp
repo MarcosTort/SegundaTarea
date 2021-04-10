@@ -80,7 +80,7 @@ TLocalizador siguiente(TLocalizador loc, TCadena cad) {
 TLocalizador anterior(TLocalizador loc, TCadena cad) {
   assert(localizadorEnCadena(loc, cad));
   if (inicioCadena(cad) != loc){
-    TLocalizador aux = loc->siguiente;
+    TLocalizador aux = loc->anterior;
     return aux;
   }
   else{return NULL;}
