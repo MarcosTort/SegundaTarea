@@ -208,21 +208,26 @@ void imprimirCadena(TCadena cad) {
 TLocalizador kesimo(nat k, TCadena cad) {
   TLocalizador reco = cad->inicio;
   nat j = 1;
-  while((reco->siguiente != NULL )&& (j < k)){
-    reco = reco->siguiente;
-    j++;
-  }
-  if (k>0 || k > j){
-    return NULL;
-  }
-  else{
-    if ((j == k )&& (reco != NULL)){
-      return reco;
+  if (k<=0){
+
+    
+    while((reco->siguiente != NULL )&& (j < k)){
+      reco = reco->siguiente;
+      j++;
     }
-    else{
+    if (reco == NULL|| k > j){
       return NULL;
     }
+    else{
+      if ((j == k )&& (reco != NULL)){
+        return reco;
+      }
+      else{
+        return NULL;
+      }
+    }
   }
+  else{return NULL;}
 }
 
 TCadena insertarSegmentoDespues(TCadena sgm, TLocalizador loc, TCadena cad) {
