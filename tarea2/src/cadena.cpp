@@ -61,7 +61,10 @@ TLocalizador finalCadena(TCadena cad) {
 }
 
 TInfo infoCadena(TLocalizador loc, TCadena cad) {
-  return loc->dato;
+  if (localizadorEnCadena(loc, cad)){
+    return loc->dato;
+  }
+  else{return NULL;}
 }
 
 TLocalizador siguiente(TLocalizador loc, TCadena cad) {
