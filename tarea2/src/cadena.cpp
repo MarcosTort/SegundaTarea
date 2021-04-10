@@ -211,7 +211,7 @@ TLocalizador kesimo(nat k, TCadena cad) {
   if (k<=0){
 
     
-    while((reco->siguiente != NULL )&& (j < k)){
+    while((reco != NULL )&& (j < k)){
       reco = reco->siguiente;
       j++;
     }
