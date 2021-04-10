@@ -27,6 +27,7 @@ TCadena crearCadena() {
 }
 
 void liberarCadena(TCadena cad) {
+  if(!esVaciaCadena(cad)){
     nodoCadena *prox_a_borrar;
     while(cad->inicio != NULL)
     {
@@ -34,8 +35,9 @@ void liberarCadena(TCadena cad) {
         cad->inicio = cad->inicio->siguiente;
         liberarInfo(prox_a_borrar->dato);
         delete(prox_a_borrar);
-    };
-
+    }
+  }
+  delete cad;
 }
 
 bool esVaciaCadena(TCadena cad) {
@@ -43,23 +45,19 @@ bool esVaciaCadena(TCadena cad) {
 }
 
 TLocalizador inicioCadena(TCadena cad) {
-  TLocalizador res;
     if (esVaciaCadena(cad)) {
-      res = NULL;
+      return NULL;
     } else {
-      res = cad->inicio;
+      return cad->inicio;
     }
-    return res;
 }
 
 TLocalizador finalCadena(TCadena cad) {
-  TLocalizador res;
     if (esVaciaCadena(cad)) {
-      res = NULL;
+      return NULL;
     } else {
-      res = cad->final;
+      return cad->final;
     }
-    return res;
 }
 
 TInfo infoCadena(TLocalizador loc, TCadena cad) {
