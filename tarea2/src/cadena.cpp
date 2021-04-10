@@ -200,6 +200,7 @@ void imprimirCadena(TCadena cad) {
       char *dat2 = infoATexto(a->inicio->dato);
       delete dat2;
     }//end segundo else
+    printf("\n");
   }//end primer if
   else{
     printf("\n");
