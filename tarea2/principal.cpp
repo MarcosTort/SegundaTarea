@@ -83,7 +83,7 @@ int main() {
   TCadena cad = crearCadena();
   TLocalizador loc = inicioCadena(cad); // no válido porque cad es vacía
 
-  char restoLinea[MAX_LINEA];
+  char restoLinea[MAX_LINEA + 1];
   char nom_comando[MAX_PALABRA];
 
   int cont_comandos = 0;

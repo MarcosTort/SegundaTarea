@@ -165,8 +165,9 @@ TLocalizador kesimo(nat k, TCadena cad);
 bool localizadorEnCadena(TLocalizador loc, TCadena cad);
 
 /*
-  Devuelve 'true' si y solo si 'loc1' es igual o precede a 'loc2' en 'cad'.
+  Devuelve 'true' si y solo si  en 'cad' 'loc1' es igual o precede a 'loc2'.
   Si esVaciaCadena (cad) devuelve 'false'.
+  Si con 'loc1' o 'loc2' no se accede a un elemento de 'cad' devuelve 'false'.
   El tiempo de ejecución en el peor caso es O(n), siendo 'n' la cantidad de
   elementos en 'cad'.
  */
