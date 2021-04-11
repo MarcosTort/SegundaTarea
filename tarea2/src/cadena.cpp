@@ -149,39 +149,39 @@ TCadena insertarAntes(TInfo i, TLocalizador loc, TCadena cad) {
 }
 
 TCadena removerDeCadena(TLocalizador loc, TCadena cad) {
-  assert(localizadorEnCadena(loc, cad));
   TLocalizador aux = loc;
+  if (!esVaciaCadena(cad)){
+    if (esInicioCadena(loc, cad)){
+      //inicio
+      if (esLocalizador(loc->siguiente)){
+        cad->inicio = aux->siguiente; 
+        aux->siguiente->anterior = NULL; 
+        liberarInfo(loc->dato);
+        delete loc;
+      } else {
+        cad->inicio = NULL;
+        cad->final = NULL;
+        liberarInfo(loc->dato);
+        delete loc;
+      }
 
-	if (esInicioCadena(loc, cad)) {
-		//inicio
-		if (esLocalizador(loc->siguiente)) {
-      cad->inicio = aux->siguiente; 
-			aux->siguiente->anterior = NULL; 
-			liberarInfo(loc->dato);
-			delete loc;
-		} else {
-      cad->inicio = NULL;
-			cad->final = NULL;
-			liberarInfo(loc->dato);
-			delete loc;
-		}
-
-	} else {
-		if (!esFinalCadena(loc, cad)) {
-       //medio 
-			aux->anterior->siguiente = aux->siguiente;
-			aux->siguiente->anterior = aux->anterior;
-			liberarInfo(loc->dato);
-			delete loc;
-		} else {
-      //final 
-			cad->final = aux->anterior;
-			aux->anterior->siguiente = NULL;
-			liberarInfo(loc->dato);
-			delete loc;
-		}
-	}		
-  return cad;
+    } else {
+      if (!esFinalCadena(loc, cad)){
+        //medio 
+        aux->anterior->siguiente = aux->siguiente;
+        aux->siguiente->anterior = aux->anterior;
+        liberarInfo(loc->dato);
+        delete loc;
+      } else {
+        //final 
+        cad->final = aux->anterior;
+        aux->anterior->siguiente = NULL;
+        liberarInfo(loc->dato);
+        delete loc;
+      }
+    }		
+    return cad;
+  }
 }
 
 void imprimirCadena(TCadena cad) {
