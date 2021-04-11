@@ -194,8 +194,8 @@ void imprimirCadena(TCadena cad) {
       while (l->siguiente != NULL){
         ArregloChars dat = infoATexto(l->dato);
         printf(dat);
+	delete[] dat;
         l = l->siguiente;
-        delete[] dat;
       }//end while
     }//end segundo if
     else{
