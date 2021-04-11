@@ -224,21 +224,16 @@ TCadena insertarSegmentoDespues(TCadena sgm, TLocalizador loc, TCadena cad) {
   assert(localizadorEnCadena(loc, cad) || localizadorEnCadena(loc, cad));
   if(!esVaciaCadena(cad)){
     if(!esVaciaCadena(sgm)){
-      if(finalCadena(cad) != loc){
         sgm->inicio->anterior = loc;
         sgm->final->siguiente = loc->siguiente;
-        loc->siguiente->anterior = sgm->final;
-        loc->siguiente = sgm->inicio;
+      if(finalCadena(cad) != loc){
+          loc->siguiente->anterior = sgm->final;
+          loc->siguiente = sgm->inicio;
       }
       else{
-        sgm->inicio->anterior = loc;
-        sgm->final->siguiente = loc->siguiente;
-        cad->final = sgm->final;
-        loc->siguiente = sgm->inicio;
+          cad->final = sgm->final;
+          loc->siguiente = sgm->inicio;
       }
-    }
-    else{
-      return cad;//cuando Ssm es vacio
     }
   }
   else{
