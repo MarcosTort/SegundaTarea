@@ -15,10 +15,13 @@
  */
 bool pertenece(nat elem, TCadena cad){
   TLocalizador rec = inicioCadena(cad);
-  while(!esFinalCadena(rec, cad) && natInfo(infoCadena(rec, cad)) != elem){
+  if(!esVaciaCadena(cad)){
+  while((!esFinalCadena(rec, cad)) && (natInfo(infoCadena(rec, cad)) != elem)){
     rec = siguiente(rec, cad);
   }
   return natInfo(infoCadena(rec, cad)) == elem;
+  }
+  else{return false;}
 }
 /*
   Devuelve la cantidad de elementos de 'cad'.
