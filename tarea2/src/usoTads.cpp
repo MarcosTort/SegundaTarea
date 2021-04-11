@@ -2,6 +2,7 @@
 #include "../include/cadena.h"
 #include "../include/info.h"
 #include "../include/utils.h"
+
 #include <stddef.h>
 #include <stdio.h>
 #include <assert.h>
@@ -14,10 +15,10 @@
  */
 bool pertenece(nat elem, TCadena cad){
   TLocalizador rec = inicioCadena(cad);
-  while(!esFinalCadena(rec, cad) && natInfo(rec->dato) != elem){
+  while(!esFinalCadena(rec, cad) && natInfo(infoCadena(rec, cad)) != elem){
     rec = siguiente(rec, cad);
   }
-  return natInfo(rec->dato) == elem;
+  return natInfo(infoCadena(rec, cad)) == elem;
 }
 /*
   Devuelve la cantidad de elementos de 'cad'.
