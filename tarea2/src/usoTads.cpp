@@ -28,7 +28,13 @@ bool pertenece(nat elem, TCadena cad){
   El tiempo de ejecución en el peor caso es O(n), siendo 'n' la cantidad de
   elementos de 'cad'.
  */
-nat longitud(TCadena cad){return 0;}
+nat longitud(TCadena cad){
+  nat contador = 0;
+  TLocalizador rec = inicioCadena(cad);
+  while(!esFinalCadena(rec, cad))
+    contador ++;
+  return contador;
+}
 
 /*
   Devuelve 'true' si y solo si 'cad' está ordenada de forma no dereciente
