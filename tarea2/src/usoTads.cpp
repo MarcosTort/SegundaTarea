@@ -56,10 +56,10 @@ bool estaOrdenadaPorNaturales(TCadena cad){
     return true;
   }
   else{
-    bool ordenado = natInfo(infoCadena(ctr, cad)) <= natInfo(infoCadena(siguiente(ctr, cad), cad));
+    bool ordenado = true;
     while(!esFinalCadena(ctr, cad) && ordenado){
-      ctr = siguiente(ctr, cad);
       ordenado = natInfo(infoCadena(ctr, cad)) <= natInfo(infoCadena(siguiente(ctr, cad), cad));
+      ctr = siguiente(ctr, cad);
     }
     return ordenado;
   }
