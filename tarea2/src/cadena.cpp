@@ -117,13 +117,15 @@ TCadena insertarAlFinal(TInfo i, TCadena cad) {
   nodoCadena *entrante = new nodoCadena;
   entrante->siguiente = NULL;
   entrante->dato = i;
-  if(!esVaciaCadena(cad)){
+  if(cad->final == NULL){
+    assert(cad->inicio == NULL);
     entrante->anterior = cad->final;
-    cad->final->siguiente = entrante;
+	  cad->final->siguiente = entrante;
   }
   else{
-    entrante->anterior = NULL;
+    assert(cad->inicio != NULL);
     cad->inicio = entrante;
+    entrante->anterior = NULL;
   }
   cad->final = entrante;
   return cad;
