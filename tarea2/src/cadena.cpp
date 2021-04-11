@@ -116,17 +116,19 @@ bool esInicioCadena(TLocalizador loc, TCadena cad) {
 TCadena insertarAlFinal(TInfo i, TCadena cad) {
   nodoCadena *entrante = new nodoCadena;
   entrante->siguiente = NULL;
-  entrante->anterior = cad->final;
   entrante->dato = i;
   if(!esVaciaCadena(cad)){
-	  cad->final->siguiente = entrante;
+    entrante->anterior = cad->final;
+    cad->final->siguiente = entrante;
   }
   else{
-	  cad->inicio = entrante;
+    entrante->anterior = NULL;
+    cad->inicio = entrante;
   }
   cad->final = entrante;
   return cad;
 }
+
 TCadena insertarAntes(TInfo i, TLocalizador loc, TCadena cad) {
   if (localizadorEnCadena(loc, cad)){
 	  nodoCadena *entrante = new nodoCadena;
