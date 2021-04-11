@@ -330,10 +330,7 @@ TLocalizador anteriorClave(nat clave, TLocalizador loc, TCadena cad) {
     while(esLocalizador(rec) && (natInfo(rec->dato) != clave)){
       rec = rec->anterior;
     }
-    if(natInfo(rec->dato) == clave)
-      {return rec;}
-    else
-      {return NULL;}
+    return rec;
   }
 }
 
