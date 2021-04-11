@@ -180,9 +180,9 @@ TCadena removerDeCadena(TLocalizador loc, TCadena cad) {
 			liberarInfo(loc->dato);
 			delete loc;
 		}
-	}		
-  return cad;
+	}
     }
+return cad;
 }
 
 void imprimirCadena(TCadena cad) {
