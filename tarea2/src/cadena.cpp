@@ -149,35 +149,41 @@ TCadena insertarAntes(TInfo i, TLocalizador loc, TCadena cad) {
 }
 
 TCadena removerDeCadena(TLocalizador loc, TCadena cad) {
-  if (!esVaciaCadena(cad)) {
-    liberarInfo(loc->dato);
-    if ((esInicioCadena(loc, cad)) && (esFinalCadena(loc, cad))) {
-      cad->inicio = cad->final = NULL;
-    } else if (esInicioCadena(loc, cad)) {
-      cad->inicio = loc->siguiente;
-      cad->inicio->anterior = NULL;
-    } else if (esFinalCadena(loc, cad)) {
-      cad->final = loc->anterior;
-      cad->final->siguiente = NULL;
-    } else {
-      loc->anterior->siguiente = loc->siguiente;
-      loc->siguiente->anterior = loc->anterior;
-    }
-    delete loc;
-  }
-return cad;
+  assert(localizadorEnCadena(loc, cad));
+  TLocalizador aux = loc;
+
+	if (esInicioCadena(loc, cad)) {
+		//inicio
+		if (esLocalizador(loc->siguiente)) {
+      cad->inicio = aux->siguiente; 
+			aux->siguiente->anterior = NULL; 
+			liberarInfo(loc->dato);
+			delete loc;
+		} else {
+      cad->inicio = NULL;
+			cad->final = NULL;
+			liberarInfo(loc->dato);
+			delete loc;
+		}
+
+	} else {
+		if (!esFinalCadena(loc, cad)) {
+       //medio 
+			aux->anterior->siguiente = aux->siguiente;
+			aux->siguiente->anterior = aux->anterior;
+			liberarInfo(loc->dato);
+			delete loc;
+		} else {
+      //final 
+			cad->final = aux->anterior;
+			aux->anterior->siguiente = NULL;
+			liberarInfo(loc->dato);
+			delete loc;
+		}
+	}		
+  return cad;
 }
 
-void imprimirCadena(TCadena cad) {
-  TLocalizador l = cad->inicio;
-      while (esLocalizador(l)){
-        char *dat = infoATexto(l->dato);
-        printf("%s", dat);
-	delete[] dat;
-        l = l->siguiente;
-      }//end while
-printf("\n"); 
-}
 
 TLocalizador kesimo(nat k, TCadena cad) {
   TLocalizador reco = cad->inicio;
