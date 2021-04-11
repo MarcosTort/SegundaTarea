@@ -33,7 +33,7 @@ nat longitud(TCadena cad){
     return 0;
   }
   else{
-  nat contador = 0;
+  nat contador = 1;
   TLocalizador rec = inicioCadena(cad);
   while(!esFinalCadena(rec, cad)){
     rec = siguiente(rec, cad);
