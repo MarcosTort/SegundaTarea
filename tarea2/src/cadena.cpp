@@ -193,14 +193,14 @@ void imprimirCadena(TCadena cad) {
       
       while (l->siguiente != NULL){
         char *dat = infoATexto(l->dato);
-        printf("%s", dat);
+        printf(dat);
         l = l->siguiente;
         delete[] dat;
       }//end while
     }//end segundo if
     else{
       char *dat2 = infoATexto(l->dato); //imprime unico dato
-      printf("%s", dat2);
+      printf(dat2);
       delete[] dat2;
     }//end segundo else
   }
