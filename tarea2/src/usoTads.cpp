@@ -2,6 +2,11 @@
 #include "../include/cadena.h"
 #include "../include/info.h"
 #include "../include/utils.h"
+#include "cadena.cpp"
+#include <stddef.h>
+#include <stdio.h>
+#include <assert.h>
+#include <string.h>
 /*
   Devuelve 'true' si y solo si en 'cad' hay un elemento cuyo campo natural es
   'elem'.
