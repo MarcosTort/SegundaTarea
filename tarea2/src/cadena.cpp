@@ -318,6 +318,7 @@ TLocalizador siguienteClave(nat clave, TLocalizador loc, TCadena cad) {
       rec = rec->siguiente;
     }
     return rec;
+ }
 }
 
 TLocalizador anteriorClave(nat clave, TLocalizador loc, TCadena cad) {
