@@ -188,20 +188,12 @@ return cad;
 void imprimirCadena(TCadena cad) {
   TLocalizador l = cad->inicio;
   if(!esVaciaCadena(cad)){
-
-    if(l->siguiente != NULL);
       while (l->siguiente != NULL){
         char *dat = infoATexto(l->dato);
         printf("%s", dat);
 	delete[] dat;
         l = l->siguiente;
       }//end while
-    }//end segundo if
-    else{
-      char *dat2 = infoATexto(l->dato); //imprime unico dato
-      printf("%s",dat2);
-      delete[] dat2;
-    }//end segundo else
   }
 printf("\n"); 
 }
