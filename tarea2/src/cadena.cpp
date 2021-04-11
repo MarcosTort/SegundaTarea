@@ -219,23 +219,20 @@ TLocalizador kesimo(nat k, TCadena cad) {
 }
 
 TCadena insertarSegmentoDespues(TCadena sgm, TLocalizador loc, TCadena cad) {
-  if(!esVaciaCadena(cad)){
-    if(!esVaciaCadena(sgm)){
-        sgm->inicio->anterior = loc;
-        sgm->final->siguiente = loc->siguiente;
-      if(finalCadena(cad) != loc){
-          loc->siguiente->anterior = sgm->final;
-      }
-      else{
-          cad->final = sgm->final;
-          
+  if (esVaciaCadena(cad)) {
+    cad->inicio = sgm->inicio;
+    cad->final = sgm->final;
+  } else {
+    if (!esVaciaCadena(sgm)) {
+      sgm->inicio->anterior = loc;
+      sgm->final->siguiente = loc->siguiente;
+      if (esFinalCadena(loc, cad)) {
+        cad->final = sgm->final;
+      } else {
+        loc->siguiente->anterior = sgm->final;
       }
       loc->siguiente = sgm->inicio;
     }
-  }
-  else{
-       cad->inicio = sgm->inicio;
-       cad->final = sgm->final;
   }
   sgm->inicio = sgm->final = NULL;
   return cad;
