@@ -51,11 +51,11 @@ nat longitud(TCadena cad){
   elementos de 'cad'.
  */
 bool estaOrdenadaPorNaturales(TCadena cad){
-  if(esVaciaCadena(cad)){
+  TLocalizador ctr = inicioCadena(cad);
+  if(esVaciaCadena(cad) || esFinalCadena(ctr, cad) ){
     return true;
   }
   else{
-    TLocalizador ctr = inicioCadena(cad);
     bool ordenado = ctr <= siguiente(ctr, cad);
     while(!esFinalCadena(ctr, cad) && ordenado){
       ctr = siguiente(ctr, cad);
