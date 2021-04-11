@@ -184,7 +184,16 @@ TCadena removerDeCadena(TLocalizador loc, TCadena cad) {
   return cad;
 }
 
-
+void imprimirCadena(TCadena cad) {
+  TLocalizador l = cad->inicio;
+      while (esLocalizador(l)){
+        char *dat = infoATexto(l->dato);
+        printf("%s", dat);
+       	delete[] dat;
+        l = l->siguiente;
+      }//end while
+printf("\n"); 
+}
 TLocalizador kesimo(nat k, TCadena cad) {
   TLocalizador reco = cad->inicio;
   nat j = 1;
