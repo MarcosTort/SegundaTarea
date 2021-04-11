@@ -70,7 +70,28 @@ bool estaOrdenadaPorNaturales(TCadena cad){
   El tiempo de ejecución en el peor caso es O(n^2), siendo 'n' la cantidad de
   elementos de 'cad'.
  */
-bool hayNatsRepetidos(TCadena cad){return true;}
+bool hayNatsRepetidos(TCadena cad){
+  TLocalizador fija = inicioCadena(cad);
+  TLocalizador resto = inicioCadena(cad);
+  if(esVaciaCadena(cad) || esFinalCadena(fija, cad) ){
+    return false;
+  }
+  else{
+    bool repetidos = false;
+    while(!esFinalCadena(fija, cad) && !repetidos){
+      while(!esFinalCadena(resto, cad)&& !repetidos){
+        repetidos = natInfo(infoCadena(fija, cad)) == natInfo(infoCadena(resto, cad));
+        if((resto != fija) && (repetidos)){
+          repetidos = true;
+        }
+        else{resto = siguiente(resto, cad);}
+      }//end while resto
+      fija = siguiente(fija, cad);
+    }//end while fijo
+  return repetidos;
+  }//end else
+
+}
 
 /*
   Devuelve 'true' si y solo si 'c1' y 'c2' son iguales (es decir, si los
