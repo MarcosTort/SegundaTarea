@@ -56,15 +56,14 @@ bool estaOrdenadaPorNaturales(TCadena cad){
     return true;
   }
   else{
-    bool ordenado = ctr <= siguiente(ctr, cad);
+    bool ordenado = natInfo(infoCadena(ctr, cad)) <= natInfo(infoCadena(siguiente(ctr, cad), cad));
     while(!esFinalCadena(ctr, cad) && ordenado){
       ctr = siguiente(ctr, cad);
-      ordenado = (ctr <= siguiente(ctr, cad));
+      ordenado = natInfo(infoCadena(ctr, cad)) <= natInfo(infoCadena(siguiente(ctr, cad), cad));
     }
     return ordenado;
   }
 }
-
 /*
   Devuelve 'true' si y solo si los componentes naturales de algún par de
   elementos de 'cad' son iguales.
