@@ -2,7 +2,6 @@
 #include "../include/cadena.h"
 #include "../include/info.h"
 #include "../include/utils.h"
-#include "cadena.cpp"
 #include <stddef.h>
 #include <stdio.h>
 #include <assert.h>
