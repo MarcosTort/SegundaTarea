@@ -8,8 +8,13 @@
   El tiempo de ejecución en el peor caso es O(n), siendo 'n' la cantidad de
   elementos de 'cad'.
  */
-bool pertenece(nat elem, TCadena cad){return true;}
-
+bool pertenece(nat elem, TCadena cad){
+  TLocalizador rec = inicioCadena(cad);
+  while(!esFinalCadena(rec, cad) && natInfo(rec->dato) != elem){
+    rec = siguiente(rec, cad);
+  }
+  return natInfo(rec->dato) == elem;
+}
 /*
   Devuelve la cantidad de elementos de 'cad'.
   El tiempo de ejecución en el peor caso es O(n), siendo 'n' la cantidad de
