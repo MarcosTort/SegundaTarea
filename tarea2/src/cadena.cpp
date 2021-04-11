@@ -225,8 +225,8 @@ TCadena insertarSegmentoDespues(TCadena sgm, TLocalizador loc, TCadena cad) {
   if(!esVaciaCadena(cad)){
     if(!esVaciaCadena(sgm)){
       if(finalCadena(cad) != loc){
-        sgm->inicio->anterior = loc->siguiente;
-        sgm->final->siguiente = loc;
+        sgm->inicio->anterior = loc;
+        sgm->final->siguiente = loc->siguiente;
         loc->siguiente->anterior = sgm->final;
         loc->siguiente = sgm->inicio;
       }
