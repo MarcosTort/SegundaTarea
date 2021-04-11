@@ -50,7 +50,20 @@ nat longitud(TCadena cad){
   El tiempo de ejecución en el peor caso es O(n), siendo 'n' la cantidad de
   elementos de 'cad'.
  */
-bool estaOrdenadaPorNaturales(TCadena cad){return true;}
+bool estaOrdenadaPorNaturales(TCadena cad){
+  if(esVaciaCadena(cad)){
+    return true;
+  }
+  else{
+    TLocalizador ctr = inicioCadena(cad);
+    bool ordenado = ctr <= siguiente(ctr, cad);
+    while(!esFinalCadena(ctr, cad) && ordenado){
+      ctr = siguiente(ctr, cad);
+      ordenado = (ctr <= siguiente(ctr, cad));
+    }
+    return ordenado;
+  }
+}
 
 /*
   Devuelve 'true' si y solo si los componentes naturales de algún par de
