@@ -150,7 +150,7 @@ TCadena insertarAntes(TInfo i, TLocalizador loc, TCadena cad) {
 TCadena removerDeCadena(TLocalizador loc, TCadena cad) {
   assert(localizadorEnCadena(loc, cad));
   TLocalizador aux = loc;
-    if(localizadorEnCadena(loc, cad));{
+    if(localizadorEnCadena(loc, cad)){
 
 	if (esInicioCadena(loc, cad)) {
 		//inicio
