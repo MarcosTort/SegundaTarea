@@ -31,8 +31,10 @@ bool pertenece(nat elem, TCadena cad){
 nat longitud(TCadena cad){
   nat contador = 0;
   TLocalizador rec = inicioCadena(cad);
-  while(!esFinalCadena(rec, cad))
+  while(!esFinalCadena(rec, cad)){
+    rec = siguiente(rec, cad);
     contador ++;
+  }
   return contador;
 }
 
