@@ -287,6 +287,9 @@ bool localizadorEnCadena(TLocalizador loc, TCadena cad) {
     return false;
   }
   else{
+    if (esFinalCadena(loc, cad) || esInicioCadena(loc, cad)) {				
+			encontro = true;
+		} 
     TLocalizador aux = cad->inicio;
     while (esLocalizador(aux) && aux != loc){
       aux = aux->siguiente;
