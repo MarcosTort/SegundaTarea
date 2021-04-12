@@ -1,0 +1,40 @@
+0a1,15
+> ==22986== Invalid read of size 8
+> ==22986==    at 0x402471: insertarAlFinal(_rep_info*, _rep_cadena*) (cadena.cpp:119)
+> ==22986==    by 0x401612: main (principal.cpp:147)
+> ==22986==  Address 0x8 is not stack'd, malloc'd or (recently) free'd
+> ==22986== 
+> ==22986== 
+> ==22986== Process terminating with default action of signal 11 (SIGSEGV): dumping core
+> ==22986==  Access not within mapped region at address 0x8
+> ==22986==    at 0x402471: insertarAlFinal(_rep_info*, _rep_cadena*) (cadena.cpp:119)
+> ==22986==    by 0x401612: main (principal.cpp:147)
+> ==22986==  If you believe this happened as a result of a stack
+> ==22986==  overflow in your program's main thread (unlikely but
+> ==22986==  possible), you can try to increase the size of the
+> ==22986==  main thread stack using the --main-stacksize= flag.
+> ==22986==  The main thread stack size used in this run was 8388608.
+3,18c18,23
+< 3>Insertado al final.
+< 4>Quedó ordenada.
+< 5>Insertado al final.
+< 6>Quedó ordenada.
+< 7>(2,3.40)(6,2.40)
+< 8>Quedó ordenada.
+< 9>(2,3.40)(6,2.40)
+< 10>Insertado al final.
+< 11>Quedó ordenada.
+< 12>(2,3.40)(6,2.40)(9,3.40)
+< 13>loc al final.
+< 14>Segmento insertado después de loc.
+< 15>(2,3.40)(6,2.40)(9,3.40)(5,3.40)(11,9.40)(7,2.60)
+< 16>Quedó ordenada.
+< 17>(2,3.40)(5,3.40)(6,2.40)(7,2.60)(9,3.40)(11,9.40)
+< 18>Fin.
+---
+> 3>==22986== 16 bytes in 1 blocks are definitely lost in loss record 2 of 3
+> ==22986==    at 0x4838E86: operator new(unsigned long) (vg_replace_malloc.c:344)
+> ==22986==    by 0x4021E9: crearCadena() (cadena.cpp:24)
+> ==22986==    by 0x401294: main (principal.cpp:83)
+> ==22986== 
+> timeout: the monitored command dumped core

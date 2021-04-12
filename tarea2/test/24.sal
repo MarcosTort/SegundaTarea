@@ -1,0 +1,18 @@
+==23015== Invalid read of size 8
+==23015==    at 0x40274F: imprimirCadena(_rep_cadena*) (cadena.cpp:188)
+==23015==    by 0x401E6A: main (principal.cpp:286)
+==23015==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
+==23015== 
+==23015== 
+==23015== Process terminating with default action of signal 11 (SIGSEGV): dumping core
+==23015==  Access not within mapped region at address 0x0
+==23015==    at 0x40274F: imprimirCadena(_rep_cadena*) (cadena.cpp:188)
+==23015==    by 0x401E6A: main (principal.cpp:286)
+==23015==  If you believe this happened as a result of a stack
+==23015==  overflow in your program's main thread (unlikely but
+==23015==  possible), you can try to increase the size of the
+==23015==  main thread stack using the --main-stacksize= flag.
+==23015==  The main thread stack size used in this run was 8388608.
+1>#  Implementar subCadena.
+2>Insertado al final.
+3>timeout: the monitored command dumped core

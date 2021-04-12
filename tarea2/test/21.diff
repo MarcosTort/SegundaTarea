@@ -1,0 +1,27 @@
+0a1,15
+> ==22971== Invalid read of size 8
+> ==22971==    at 0x40274F: imprimirCadena(_rep_cadena*) (cadena.cpp:188)
+> ==22971==    by 0x401D7D: main (principal.cpp:266)
+> ==22971==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
+> ==22971== 
+> ==22971== 
+> ==22971== Process terminating with default action of signal 11 (SIGSEGV): dumping core
+> ==22971==  Access not within mapped region at address 0x0
+> ==22971==    at 0x40274F: imprimirCadena(_rep_cadena*) (cadena.cpp:188)
+> ==22971==    by 0x401D7D: main (principal.cpp:266)
+> ==22971==  If you believe this happened as a result of a stack
+> ==22971==  overflow in your program's main thread (unlikely but
+> ==22971==  possible), you can try to increase the size of the
+> ==22971==  main thread stack using the --main-stacksize= flag.
+> ==22971==  The main thread stack size used in this run was 8388608.
+2,9c17
+< 2>
+< 3>(5,3.40)(8,9.40)(7,2.60)
+< 4>
+< 5>Segmento insertado después de loc.
+< 6>(5,3.40)(8,9.40)(7,2.60)
+< 7>(5,3.40)(8,9.40)(7,2.60)(5,3.40)(8,9.40)(7,2.60)
+< 8>(5,3.40)(8,9.40)(7,2.60)
+< 9>Fin.
+---
+> 2>timeout: the monitored command dumped core

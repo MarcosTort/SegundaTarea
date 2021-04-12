@@ -1,0 +1,25 @@
+3c3
+< 3>No son iguales.
+---
+> 3>Son iguales.
+5,6c5,6
+< 5>No son iguales.
+< 6>No son iguales.
+---
+> 5>Son iguales.
+> 6>Son iguales.
+11,13c11,13
+< 11>No son iguales.
+< 12>No son iguales.
+< 13>No son iguales.
+---
+> 11>Son iguales.
+> 12>Son iguales.
+> 13>Son iguales.
+14a15,20
+> ==22964== 16 bytes in 1 blocks are definitely lost in loss record 1 of 1
+> ==22964==    at 0x4838E86: operator new(unsigned long) (vg_replace_malloc.c:344)
+> ==22964==    by 0x4021E9: crearCadena() (cadena.cpp:24)
+> ==22964==    by 0x401245: leerCadena() (principal.cpp:71)
+> ==22964==    by 0x401821: main (principal.cpp:181)
+> ==22964== 
