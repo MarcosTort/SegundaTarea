@@ -93,6 +93,7 @@ bool hayNatsRepetidos(TCadena cad){
       cad = removerDeCadena(fija, cad);
       repetidos = pertenece(natInfo(infoCadena(fija, cad)), cad);
       cad = insertarAlFinal(infoCadena(fija, cad), cad);
+      fija = siguiente(fija, cad);
     }
     return repetidos;
   }//end else
