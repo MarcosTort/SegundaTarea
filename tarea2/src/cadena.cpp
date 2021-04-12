@@ -287,7 +287,7 @@ bool localizadorEnCadena(TLocalizador loc, TCadena cad) {
     return false;
   }
   else{
-    bool flag = false
+    bool flag = false;
     if (esFinalCadena(loc, cad) || esInicioCadena(loc, cad)) {				
 			flag = aux == loc;
 		} 
