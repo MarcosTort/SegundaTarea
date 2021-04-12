@@ -103,11 +103,11 @@ DIFFS=$(CASOS:%=$(TESTDIR)/%.diff)
 $(SALS):$(EJECUTABLE)
 # el guión antes del comando es para que si hay error no se detenga la
 # ejecución de los otros casos
-#$(TESTDIR)/%.sal:$(TESTDIR)/%.in
-#	-timeout 4 valgrind -q --leak-check=full ./$(EJECUTABLE) < $< > $@ 2>&1
-#	@if [ $$(stat -L -c %s $@) -ge 20000 ]; then \
-#		echo "tamaño excedido" > $@;\
-#	fi
+$(TESTDIR)/%.sal:$(TESTDIR)/%.in
+	-timeout 4 valgrind -q --leak-check=full ./$(EJECUTABLE) < $< > $@ 2>&1
+	@if [ $$(stat -L -c %s $@) -ge 20000 ]; then \
+		echo "tamaño excedido" > $@;\
+	fi
 
 
 %.diff:Makefile
