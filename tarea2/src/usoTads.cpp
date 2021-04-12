@@ -71,31 +71,24 @@ bool estaOrdenadaPorNaturales(TCadena cad){
   elementos de 'cad'.
  */
 bool hayNatsRepetidos(TCadena cad){
-  TCadena sgm1;
-  TCadena sgm2;
-  TLocalizador fija = inicioCadena(cad);
-  nat nataux;
-  
-  if(esVaciaCadena(cad) || esFinalCadena(fija, cad) ){
-    return false;
-  }
-  else{
-    if(natInfo(infoCadena(inicioCadena(cad), cad)) == natInfo(infoCadena(siguiente(inicioCadena(cad), cad), cad)) || (natInfo(infoCadena(finalCadena(cad), cad)) == natInfo(infoCadena(anterior(finalCadena(cad), cad), cad)))){
-      return true;
+  nat contador = 0;
+  nat control;
+  TLocalizador rec = inicioCadena(cad);
+  TLocalizador rec2 = inicioCadena(cad);
+    if(esVaciaCadena(cad) || esFinalCadena(rec, cad) ){   //descarto cadena vacia o cadena con un elemento
+      return false;
     }
     else{
-
-      
-      bool repetidos = false;
-            while(!esFinalCadena(fija, cad) && !repetidos){
-              nataux = natInfo(infoCadena(fija, cad));
-              sgm1 = copiarSegmento(inicioCadena(cad), anterior(fija, cad), cad);
-              sgm2 = copiarSegmento(siguiente(fija, cad), finalCadena(cad), cad);
-              repetidos = (pertenece(nataux, sgm1) || pertenece(nataux, sgm2));
-              fija = siguiente(fija, cad);
-            }//end while fijo
-          return repetidos;
-    }//end else
+    while((!esFinalCadena(rec, cad)) && (contador > 1)){
+      control = natInfo(infoCadena(rec, cad));
+      while((!esFinalCadena(rec2, cad)) && (contador > 1)){
+        if (natInfo(infoCadena(rec2, cad)) == control){
+          contador ++;
+        }
+        rec2 = siguiente(rec2, cad);
+      }
+      rec = siguiente(rec, cad);
+    }
   }
 }
 /*
