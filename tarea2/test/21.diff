@@ -1,19 +1,19 @@
 0a1,15
-> ==26017== Invalid read of size 8
-> ==26017==    at 0x40274F: imprimirCadena(_rep_cadena*) (cadena.cpp:188)
-> ==26017==    by 0x401D7D: main (principal.cpp:266)
-> ==26017==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
-> ==26017== 
-> ==26017== 
-> ==26017== Process terminating with default action of signal 11 (SIGSEGV): dumping core
-> ==26017==  Access not within mapped region at address 0x0
-> ==26017==    at 0x40274F: imprimirCadena(_rep_cadena*) (cadena.cpp:188)
-> ==26017==    by 0x401D7D: main (principal.cpp:266)
-> ==26017==  If you believe this happened as a result of a stack
-> ==26017==  overflow in your program's main thread (unlikely but
-> ==26017==  possible), you can try to increase the size of the
-> ==26017==  main thread stack using the --main-stacksize= flag.
-> ==26017==  The main thread stack size used in this run was 8388608.
+> ==26818== Invalid read of size 8
+> ==26818==    at 0x40274F: imprimirCadena(_rep_cadena*) (cadena.cpp:188)
+> ==26818==    by 0x401D7D: main (principal.cpp:266)
+> ==26818==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
+> ==26818== 
+> ==26818== 
+> ==26818== Process terminating with default action of signal 11 (SIGSEGV): dumping core
+> ==26818==  Access not within mapped region at address 0x0
+> ==26818==    at 0x40274F: imprimirCadena(_rep_cadena*) (cadena.cpp:188)
+> ==26818==    by 0x401D7D: main (principal.cpp:266)
+> ==26818==  If you believe this happened as a result of a stack
+> ==26818==  overflow in your program's main thread (unlikely but
+> ==26818==  possible), you can try to increase the size of the
+> ==26818==  main thread stack using the --main-stacksize= flag.
+> ==26818==  The main thread stack size used in this run was 8388608.
 2,9c17
 < 2>
 < 3>(5,3.40)(8,9.40)(7,2.60)

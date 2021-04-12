@@ -1,19 +1,19 @@
 0a1,15
-> ==26047== Invalid read of size 8
-> ==26047==    at 0x40274F: imprimirCadena(_rep_cadena*) (cadena.cpp:188)
-> ==26047==    by 0x4016CD: main (principal.cpp:161)
-> ==26047==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
-> ==26047== 
-> ==26047== 
-> ==26047== Process terminating with default action of signal 11 (SIGSEGV): dumping core
-> ==26047==  Access not within mapped region at address 0x0
-> ==26047==    at 0x40274F: imprimirCadena(_rep_cadena*) (cadena.cpp:188)
-> ==26047==    by 0x4016CD: main (principal.cpp:161)
-> ==26047==  If you believe this happened as a result of a stack
-> ==26047==  overflow in your program's main thread (unlikely but
-> ==26047==  possible), you can try to increase the size of the
-> ==26047==  main thread stack using the --main-stacksize= flag.
-> ==26047==  The main thread stack size used in this run was 8388608.
+> ==26848== Invalid read of size 8
+> ==26848==    at 0x40274F: imprimirCadena(_rep_cadena*) (cadena.cpp:188)
+> ==26848==    by 0x4016CD: main (principal.cpp:161)
+> ==26848==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
+> ==26848== 
+> ==26848== 
+> ==26848== Process terminating with default action of signal 11 (SIGSEGV): dumping core
+> ==26848==  Access not within mapped region at address 0x0
+> ==26848==    at 0x40274F: imprimirCadena(_rep_cadena*) (cadena.cpp:188)
+> ==26848==    by 0x4016CD: main (principal.cpp:161)
+> ==26848==  If you believe this happened as a result of a stack
+> ==26848==  overflow in your program's main thread (unlikely but
+> ==26848==  possible), you can try to increase the size of the
+> ==26848==  main thread stack using the --main-stacksize= flag.
+> ==26848==  The main thread stack size used in this run was 8388608.
 3,24c18,23
 < 3>
 < 4>Insertado al final.
@@ -38,9 +38,9 @@
 < 23>(8,1.30)(8,1.20)(8,3.40)(8,9.40)(8,2.60)
 < 24>Fin.
 ---
-> 3>==26047== 16 bytes in 1 blocks are definitely lost in loss record 1 of 1
-> ==26047==    at 0x4838E86: operator new(unsigned long) (vg_replace_malloc.c:344)
-> ==26047==    by 0x4021E9: crearCadena() (cadena.cpp:24)
-> ==26047==    by 0x401294: main (principal.cpp:83)
-> ==26047== 
+> 3>==26848== 16 bytes in 1 blocks are definitely lost in loss record 1 of 1
+> ==26848==    at 0x4838E86: operator new(unsigned long) (vg_replace_malloc.c:344)
+> ==26848==    by 0x4021E9: crearCadena() (cadena.cpp:24)
+> ==26848==    by 0x401294: main (principal.cpp:83)
+> ==26848== 
 > timeout: the monitored command dumped core

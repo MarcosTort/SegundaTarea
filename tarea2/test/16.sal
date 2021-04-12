@@ -6,9 +6,9 @@
 6>8 pertenece a cad.
 7>9 no pertenece a cad.
 8>Fin.
-==25982== 16 bytes in 1 blocks are definitely lost in loss record 1 of 1
-==25982==    at 0x4838E86: operator new(unsigned long) (vg_replace_malloc.c:344)
-==25982==    by 0x4021E9: crearCadena() (cadena.cpp:24)
-==25982==    by 0x401245: leerCadena() (principal.cpp:71)
-==25982==    by 0x401821: main (principal.cpp:181)
-==25982== 
+==26783== 16 bytes in 1 blocks are definitely lost in loss record 1 of 1
+==26783==    at 0x4838E86: operator new(unsigned long) (vg_replace_malloc.c:344)
+==26783==    by 0x4021E9: crearCadena() (cadena.cpp:24)
+==26783==    by 0x401245: leerCadena() (principal.cpp:71)
+==26783==    by 0x401821: main (principal.cpp:181)
+==26783== 

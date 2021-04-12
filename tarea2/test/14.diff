@@ -1,7 +1,7 @@
 39a40,45
-> ==25968== 32 bytes in 2 blocks are definitely lost in loss record 1 of 1
-> ==25968==    at 0x4838E86: operator new(unsigned long) (vg_replace_malloc.c:344)
-> ==25968==    by 0x4021E9: crearCadena() (cadena.cpp:24)
-> ==25968==    by 0x401245: leerCadena() (principal.cpp:71)
-> ==25968==    by 0x401821: main (principal.cpp:181)
-> ==25968== 
+> ==26769== 32 bytes in 2 blocks are definitely lost in loss record 1 of 1
+> ==26769==    at 0x4838E86: operator new(unsigned long) (vg_replace_malloc.c:344)
+> ==26769==    by 0x4021E9: crearCadena() (cadena.cpp:24)
+> ==26769==    by 0x401245: leerCadena() (principal.cpp:71)
+> ==26769==    by 0x401821: main (principal.cpp:181)
+> ==26769== 
