@@ -287,19 +287,18 @@ bool localizadorEnCadena(TLocalizador loc, TCadena cad) {
     return false;
   }
   else{
+    TLocalizador aux = cad->inicio;
     bool flag = false;
     if (esFinalCadena(loc, cad) || esInicioCadena(loc, cad)) {				
 			flag = aux == loc;
 		} 
-    TLocalizador aux = cad->inicio;
     while (esLocalizador(aux) && !flag){
       aux = aux->siguiente;
-      flag = aux == loc
+      flag = aux == loc;
     }
     return aux == loc;
   }
 }
-
 bool precedeEnCadena(TLocalizador loc1, TLocalizador loc2, TCadena cad) {
   if(esVaciaCadena(cad) || localizadorEnCadena(loc1, cad)){
     return false;
