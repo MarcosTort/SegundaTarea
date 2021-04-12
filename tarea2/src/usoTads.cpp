@@ -89,6 +89,7 @@ bool hayNatsRepetidos(TCadena cad){
       }
       rec = siguiente(rec, cad);
     }
+    return contador >1;
   }
 }
 /*
