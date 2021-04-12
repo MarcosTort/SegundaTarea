@@ -287,12 +287,14 @@ bool localizadorEnCadena(TLocalizador loc, TCadena cad) {
     return false;
   }
   else{
+    bool flag = false
     if (esFinalCadena(loc, cad) || esInicioCadena(loc, cad)) {				
-			encontro = true;
+			flag = aux == loc;
 		} 
     TLocalizador aux = cad->inicio;
-    while (esLocalizador(aux) && aux != loc){
+    while (esLocalizador(aux) && !flag){
       aux = aux->siguiente;
+      flag = aux == loc
     }
     return aux == loc;
   }
