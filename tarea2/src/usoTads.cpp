@@ -80,11 +80,11 @@ bool hayNatsRepetidos(TCadena cad){
     bool repetidos = false;
           while(!esFinalCadena(fija, cad) && !repetidos){
             while(!esFinalCadena(resto, cad)&& !repetidos){
+              resto = siguiente(resto, cad);
+              repetidos = natInfo(infoCadena(fija, cad)) == natInfo(infoCadena(resto, cad));
               if((resto != fija) && (repetidos)){
                 repetidos = true;
               }
-              resto = siguiente(resto, cad);
-              repetidos = natInfo(infoCadena(fija, cad)) == natInfo(infoCadena(resto, cad));
             }//end while resto
             fija = siguiente(fija, cad);
           }//end while fijo
