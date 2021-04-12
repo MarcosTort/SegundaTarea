@@ -75,19 +75,21 @@ bool hayNatsRepetidos(TCadena cad){
   nat nataux;
   TInfo aux;
   TLocalizador aux2;
+  TLocalizador mem;
   if(esVaciaCadena(cad) || esFinalCadena(fija, cad) ){
     return false;
   }
   else{
     bool repetidos = false;
           while(!esFinalCadena(fija, cad) && !repetidos){
+            mem = fija;
             aux2 = siguiente(fija, cad);
             aux = infoCadena(fija, cad);
             nataux = natInfo(aux);
             cad = removerDeCadena(fija, cad);
             repetidos = pertenece(nataux, cad);
             cad = insertarAntes(aux, aux2, cad);
-            fija = aux2;
+            fija = siguiente(mem, cad);
           }//end while fijo
         return repetidos;
   }//end else
