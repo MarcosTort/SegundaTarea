@@ -87,7 +87,7 @@ bool hayNatsRepetidos(TCadena cad){
             aux = infoCadena(fija, cad);
             nataux = natInfo(aux);
             cad = removerDeCadena(fija, cad);
-            repetidos = pertenece(nataux, cad)
+            repetidos = pertenece(nataux, cad);
           }//end while fijo
         return repetidos;
   }//end else
