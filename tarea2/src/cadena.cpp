@@ -304,14 +304,14 @@ bool localizadorEnCadena(TLocalizador loc, TCadena cad) {
 bool precedeEnCadena(TLocalizador loc1, TLocalizador loc2, TCadena cad) {
   
     TLocalizador precursor = loc1;
+    bool esPrecursor = false;
     if( loc1 != loc2){
-
-    while((loc2 != precursor) && esLocalizador(precursor)){
-      if(precursor == loc2)
-        precursor = precursor->siguiente;
-      else
-        precursor = precursor->siguiente;
-    }
+      while((loc2 != precursor) && esLocalizador(precursor)){
+        if(precursor == loc2)
+          esPrecursor=true;
+        else
+          precursor = precursor->siguiente;
+      }
     return (localizadorEnCadena(loc1, cad)&&(precursor == loc2));
     }
     else{return true;}
