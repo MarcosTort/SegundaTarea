@@ -74,14 +74,14 @@ bool hayNatsRepetidos(TCadena cad){
   nat contador = 0;
   nat control;
   TLocalizador rec = inicioCadena(cad);
-  TLocalizador rec2 = inicioCadena(cad);
+  TLocalizador rec2 = siguiente(inicioCadena(cad), cad);
     if(esVaciaCadena(cad) || esFinalCadena(rec, cad) ){   //descarto cadena vacia o cadena con un elemento
       return false;
     }
     else{
-    while((esLocalizador(rec2)) && (contador > 1)){
+    while((esLocalizador(rec2)) && (contador < 1)){
       control = natInfo(infoCadena(rec, cad));
-      while((esLocalizador(rec2)) && (contador > 1)){
+      while((esLocalizador(rec2)) && (contador < 1)){
         if (natInfo(infoCadena(rec2, cad)) == control){
           contador ++;
         }
@@ -89,7 +89,7 @@ bool hayNatsRepetidos(TCadena cad){
       }
       rec = siguiente(rec, cad);
     }
-    return contador >1;
+    return contador == 1;
   }
 }
 /*
