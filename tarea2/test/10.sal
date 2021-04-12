@@ -16,9 +16,9 @@
 16>Segmento insertado después de loc.
 17>(5,3.40)(6,5.20)(7,0.90)(8,9.40)(9,2.60)
 18>Fin.
-==22892== 96 bytes in 6 blocks are definitely lost in loss record 1 of 1
-==22892==    at 0x4838E86: operator new(unsigned long) (vg_replace_malloc.c:344)
-==22892==    by 0x4021E9: crearCadena() (cadena.cpp:24)
-==22892==    by 0x401245: leerCadena() (principal.cpp:71)
-==22892==    by 0x401821: main (principal.cpp:181)
-==22892== 
+==25939== 96 bytes in 6 blocks are definitely lost in loss record 1 of 1
+==25939==    at 0x4838E86: operator new(unsigned long) (vg_replace_malloc.c:344)
+==25939==    by 0x4021E9: crearCadena() (cadena.cpp:24)
+==25939==    by 0x401245: leerCadena() (principal.cpp:71)
+==25939==    by 0x401821: main (principal.cpp:181)
+==25939== 

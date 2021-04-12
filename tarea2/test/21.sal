@@ -1,17 +1,17 @@
-==22971== Invalid read of size 8
-==22971==    at 0x40274F: imprimirCadena(_rep_cadena*) (cadena.cpp:188)
-==22971==    by 0x401D7D: main (principal.cpp:266)
-==22971==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
-==22971== 
-==22971== 
-==22971== Process terminating with default action of signal 11 (SIGSEGV): dumping core
-==22971==  Access not within mapped region at address 0x0
-==22971==    at 0x40274F: imprimirCadena(_rep_cadena*) (cadena.cpp:188)
-==22971==    by 0x401D7D: main (principal.cpp:266)
-==22971==  If you believe this happened as a result of a stack
-==22971==  overflow in your program's main thread (unlikely but
-==22971==  possible), you can try to increase the size of the
-==22971==  main thread stack using the --main-stacksize= flag.
-==22971==  The main thread stack size used in this run was 8388608.
+==26017== Invalid read of size 8
+==26017==    at 0x40274F: imprimirCadena(_rep_cadena*) (cadena.cpp:188)
+==26017==    by 0x401D7D: main (principal.cpp:266)
+==26017==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
+==26017== 
+==26017== 
+==26017== Process terminating with default action of signal 11 (SIGSEGV): dumping core
+==26017==  Access not within mapped region at address 0x0
+==26017==    at 0x40274F: imprimirCadena(_rep_cadena*) (cadena.cpp:188)
+==26017==    by 0x401D7D: main (principal.cpp:266)
+==26017==  If you believe this happened as a result of a stack
+==26017==  overflow in your program's main thread (unlikely but
+==26017==  possible), you can try to increase the size of the
+==26017==  main thread stack using the --main-stacksize= flag.
+==26017==  The main thread stack size used in this run was 8388608.
 1>#  Implementar concatenar.
 2>timeout: the monitored command dumped core

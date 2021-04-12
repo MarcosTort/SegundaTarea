@@ -25,9 +25,9 @@
 25>(6,9.20)
 26>(3,2.50)(7,2.50)(6,9.20)
 27>Fin.
-==22913== 16 bytes in 1 blocks are definitely lost in loss record 1 of 1
-==22913==    at 0x4838E86: operator new(unsigned long) (vg_replace_malloc.c:344)
-==22913==    by 0x4021E9: crearCadena() (cadena.cpp:24)
-==22913==    by 0x401245: leerCadena() (principal.cpp:71)
-==22913==    by 0x401821: main (principal.cpp:181)
-==22913== 
+==25961== 16 bytes in 1 blocks are definitely lost in loss record 1 of 1
+==25961==    at 0x4838E86: operator new(unsigned long) (vg_replace_malloc.c:344)
+==25961==    by 0x4021E9: crearCadena() (cadena.cpp:24)
+==25961==    by 0x401245: leerCadena() (principal.cpp:71)
+==25961==    by 0x401821: main (principal.cpp:181)
+==25961== 
