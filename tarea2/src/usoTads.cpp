@@ -73,6 +73,7 @@ bool estaOrdenadaPorNaturales(TCadena cad){
 bool hayNatsRepetidos(TCadena cad){
   TLocalizador fija = inicioCadena(cad);
   TInfo aux;
+  nat nataux;
   //TLocalizador resto = inicioCadena(cad);
   if(esVaciaCadena(cad) || esFinalCadena(fija, cad) ){
     return false;
@@ -92,8 +93,9 @@ bool hayNatsRepetidos(TCadena cad){
         return repetidos; */
     while(!esFinalCadena(fija, cad) && !repetidos){
       aux = infoCadena(fija, cad);
+      nataux = natInfo(aux)
       cad = removerDeCadena(fija, cad);
-      repetidos = pertenece(natInfo(infoCadena(fija, cad)), cad);
+      repetidos = pertenece(nataux, cad);
       cad = insertarAlFinal(aux, cad);
       fija = siguiente(fija, cad);
     }
