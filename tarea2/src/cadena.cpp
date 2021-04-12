@@ -312,7 +312,7 @@ bool precedeEnCadena(TLocalizador loc1, TLocalizador loc2, TCadena cad) {
         else
           precursor = precursor->siguiente;
       }
-    return (localizadorEnCadena(loc1, cad)&&(precursor == loc2));
+    return esPrecursor;
     }
     else{return true;}
 }
