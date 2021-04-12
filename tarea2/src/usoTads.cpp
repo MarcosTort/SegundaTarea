@@ -75,7 +75,6 @@ bool hayNatsRepetidos(TCadena cad){
   TCadena sgm2;
   TLocalizador fija = inicioCadena(cad);
   nat nataux;
-  TInfo aux;
   
   if(esVaciaCadena(cad) || esFinalCadena(fija, cad) ){
     return false;
