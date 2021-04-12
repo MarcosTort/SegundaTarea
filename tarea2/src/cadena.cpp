@@ -298,7 +298,7 @@ bool localizadorEnCadena(TLocalizador loc, TCadena cad) {
       else
         flag = aux == loc;
     }
-    return aux == loc;
+    return flag;
   }
 }
 bool precedeEnCadena(TLocalizador loc1, TLocalizador loc2, TCadena cad) {
