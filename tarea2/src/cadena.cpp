@@ -304,11 +304,15 @@ bool localizadorEnCadena(TLocalizador loc, TCadena cad) {
 bool precedeEnCadena(TLocalizador loc1, TLocalizador loc2, TCadena cad) {
   
     TLocalizador precursor = loc1;
+    if( loc1 != loc2){
     while(esLocalizador(precursor) && (loc2 != precursor)){
       precursor = precursor->siguiente;
     }
     return (localizadorEnCadena(loc1, cad)&&(precursor == loc2));
+    }
+    else{return true;}
 }
+
 
 TLocalizador siguienteClave(nat clave, TLocalizador loc, TCadena cad) {
   assert(localizadorEnCadena(loc, cad));
