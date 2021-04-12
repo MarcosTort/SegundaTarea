@@ -80,17 +80,23 @@ bool hayNatsRepetidos(TCadena cad){
     return false;
   }
   else{
-    bool repetidos = false;
-          while(!esFinalCadena(fija, cad) && !repetidos){
-            nataux = natInfo(infoCadena(fija, cad));
-            sgm1 = copiarSegmento(inicioCadena(cad), anterior(fija, cad), cad);
-            sgm2 = copiarSegmento(siguiente(fija, cad), finalCadena(cad), cad);
-            repetidos = (pertenece(nataux, sgm1) || pertenece(nataux, sgm2));
-            fija = siguiente(fija, cad);
-          }//end while fijo
-        return repetidos;
-  }//end else
+    if(natInfo(infoCadena(inicioCadena(cad), cad)) == natInfo(infoCadena(siguiente(inicioCadena(cad), cad), cad)) || (natInfo(infoCadena(finalCadena(cad), cad)) == natInfo(infoCadena(anterior(finalCadena(cad), cad), cad)))){
+      return true;
+    }
+    else{
 
+      
+      bool repetidos = false;
+            while(!esFinalCadena(fija, cad) && !repetidos){
+              nataux = natInfo(infoCadena(fija, cad));
+              sgm1 = copiarSegmento(inicioCadena(cad), anterior(fija, cad), cad);
+              sgm2 = copiarSegmento(siguiente(fija, cad), finalCadena(cad), cad);
+              repetidos = (pertenece(nataux, sgm1) || pertenece(nataux, sgm2));
+              fija = siguiente(fija, cad);
+            }//end while fijo
+          return repetidos;
+    }//end else
+  }
 }
 /*
   Devuelve 'true' si y solo si 'c1' y 'c2' son iguales (es decir, si los
