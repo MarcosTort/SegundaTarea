@@ -79,9 +79,9 @@ bool hayNatsRepetidos(TCadena cad){
       return false;
     }
     else{
-    while((!esFinalCadena(rec, cad)) && (contador > 1)){
+    while((esLocalizador(rec2)) && (contador > 1)){
       control = natInfo(infoCadena(rec, cad));
-      while((!esFinalCadena(rec2, cad)) && (contador > 1)){
+      while((esLocalizador(rec2)) && (contador > 1)){
         if (natInfo(infoCadena(rec2, cad)) == control){
           contador ++;
         }
