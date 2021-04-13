@@ -82,7 +82,6 @@ bool estaOrdenadaPorNaturales(TCadena cad){
         }
         rec2 = siguiente(rec2, cad);
       }
-      if (contador != 1)
         rec = siguiente(rec, cad);
     }
     return contador == 1;
