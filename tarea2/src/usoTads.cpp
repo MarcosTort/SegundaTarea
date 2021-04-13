@@ -220,7 +220,7 @@ TCadena subCadena(nat menor, nat mayor, TCadena cad){
     if(natInfo(infoCadena(rec, cad))<= mayor) 
       finalSub = rec;
 
-    if ((natInfo(infoCadena(rec, cad)) <= mayor) && (inicioSub == NULL)) 
+    if ((natInfo(infoCadena(rec, cad)) >= menor) && (inicioSub == NULL)) 
       inicioSub = rec;
 
     rec = siguiente(rec, cad);
