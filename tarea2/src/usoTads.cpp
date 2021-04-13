@@ -102,10 +102,7 @@ bool estaOrdenadaPorNaturales(TCadena cad){
   cantidad de elementos de 'c1' y 'c2' respectivamente.
  */
 bool sonIgualesCadena(TCadena c1, TCadena c2){
-  if(esVaciaCadena(c1) && esVaciaCadena(c2)){
-    return true;}
-    else{
-      if(longitud(c1) != longitud(c2)){return false;}
+  if((!esVaciaCadena(c1)) && (!esVaciaCadena(c2))){if(longitud(c1) != longitud(c2)){return false;}
       else{
         bool compar = true;
         TLocalizador l1 = inicioCadena(c1);
@@ -117,10 +114,11 @@ bool sonIgualesCadena(TCadena c1, TCadena c2){
           l2 = siguiente(l2, c2);
         }
         return compar;
-      }
+      }}
+    else{
+      return true;
   }
 }
-
 
 /*
   Devuelve el resultado de concatenar 'c2' después de 'c1'.
