@@ -153,15 +153,19 @@ return sgm;
  */
 TCadena ordenar(TCadena cad){
   if (longitud(cad) > 1){
+
     TLocalizador l = inicioCadena(cad);
-    while (!estaOrdenadaPorNaturales(cad))
+    TLocalizador rec = inicioCadena(cad);
+    while (!esFinalCadena(rec, cad))
     {
-      while (esLocalizador(siguiente(l, cad))){
+      while (esLocalizador(siguiente(l, cad)))
+      {
         TLocalizador l2 = siguiente(l, cad);
         if(natInfo(infoCadena(l, cad))>natInfo(infoCadena(l2, cad)))
           cad = intercambiar(l, l2, cad);
         l = siguiente(l, cad);
       }
+      rec = siguiente(rec, cad);
     }
   }
   return cad;
