@@ -156,7 +156,6 @@ TCadena ordenar(TCadena cad){
   if (longitud(cad) > 1){
 
     TLocalizador l = inicioCadena(cad);
-    TLocalizador rec = inicioCadena(cad);
     while (!estaOrdenadaPorNaturales(cad))
     {
       while (esLocalizador(siguiente(l, cad)))
