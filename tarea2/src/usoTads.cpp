@@ -70,7 +70,12 @@ bool estaOrdenadaPorNaturales(TCadena cad){
   El tiempo de ejecución en el peor caso es O(n^2), siendo 'n' la cantidad de
   elementos de 'cad'.
  */
- if(esVaciaCadena(cad) || esFinalCadena(rec, cad) ){   //descarto cadena vacia o cadena con un elemento
+ bool hayNatsRepetidos(TCadena cad){
+  nat contador = 0;
+  nat control;
+  TLocalizador rec = inicioCadena(cad);
+  TLocalizador rec2 = siguiente(inicioCadena(cad), cad);
+    if(esVaciaCadena(cad) || esFinalCadena(rec, cad) ){   //descarto cadena vacia o cadena con un elemento
       return false;
     }
     else{
@@ -82,7 +87,7 @@ bool estaOrdenadaPorNaturales(TCadena cad){
         }
         rec2 = siguiente(rec2, cad);
       }
-        rec = siguiente(rec, cad);
+      rec = siguiente(rec, cad);
     }
     return contador == 1;
   }
