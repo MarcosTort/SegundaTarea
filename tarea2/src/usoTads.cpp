@@ -165,7 +165,7 @@ TCadena ordenar(TCadena cad){
           cad = intercambiar(l, rec, cad);
         l = siguiente(l, cad);
       }
-      rec = siguiente(rec, cad);
+      rec = siguiente(l, cad);
     }
   }
   return cad;
