@@ -101,7 +101,25 @@ bool estaOrdenadaPorNaturales(TCadena cad){
   El tiempo de ejecución en el peor caso es O(n1 + n2), siendo 'n1' u 'n2' la
   cantidad de elementos de 'c1' y 'c2' respectivamente.
  */
-bool sonIgualesCadena(TCadena c1, TCadena c2){return true;}
+bool sonIgualesCadena(TCadena c1, TCadena c2){
+  if(esVaciaCadena(c1) && esVaciaCadena(c2)){
+    return true;}
+    else{
+      if(longitud(c1) != longitud(c2)){return false;}
+      else{
+        bool compar = true;
+        TLocalizador l1 = inicioCadena(c1);
+        TLocalizador l2 = inicioCadena(c2);
+        compar = l1 == l2;
+        while(esLocalizador(l1) && compar){
+          compar = l1 == l2;
+          l1 = siguiente(l1, c1);
+          l2 = siguiente(l2, c2);
+        }
+        return compar;
+      }
+  }
+}
 
 /*
   Devuelve el resultado de concatenar 'c2' después de 'c1'.
