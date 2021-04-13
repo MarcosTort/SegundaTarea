@@ -158,14 +158,14 @@ TCadena ordenar(TCadena cad){
     TLocalizador rec = inicioCadena(cad);
     while (!esFinalCadena(rec, cad))
     {
+      TLocalizador rec = siguiente(l, cad);
       while (esLocalizador(siguiente(l, cad)))
       {
-        TLocalizador rec = siguiente(l, cad);
         if(natInfo(infoCadena(l, cad))>natInfo(infoCadena(rec, cad)))
           cad = intercambiar(l, rec, cad);
         l = siguiente(l, cad);
       }
-      rec = siguiente(l, cad);
+      rec = siguiente(rec, cad);
     }
   }
   return cad;
