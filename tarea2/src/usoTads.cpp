@@ -110,9 +110,9 @@ bool sonIgualesCadena(TCadena c1, TCadena c2){
         bool compar = true;
         TLocalizador l1 = inicioCadena(c1);
         TLocalizador l2 = inicioCadena(c2);
-        compar = l1 == l2;
+        compar = sonIgualesInfo(infoCadena(l1, c1), infoCadena(l2, c2));
         while(esLocalizador(l1) && compar){
-          compar = l1 == l2;
+          compar = sonIgualesInfo(infoCadena(l1, c1), infoCadena(l2, c2));
           l1 = siguiente(l1, c1);
           l2 = siguiente(l2, c2);
         }
@@ -120,6 +120,7 @@ bool sonIgualesCadena(TCadena c1, TCadena c2){
       }
   }
 }
+
 
 /*
   Devuelve el resultado de concatenar 'c2' después de 'c1'.
