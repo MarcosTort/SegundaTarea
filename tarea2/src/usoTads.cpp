@@ -197,6 +197,7 @@ TCadena cambiarTodos(nat original, nat nuevo, TCadena cad){
       }
     }
   }
+  return cad;
 }
 /*
   Devuelve la 'TCadena' de elementos de 'cad' que cumplen
