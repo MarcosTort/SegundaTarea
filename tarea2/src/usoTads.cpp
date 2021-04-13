@@ -151,8 +151,25 @@ return sgm;
   El tiempo de ejecución en el peor caso es O(n^2), siendo 'n' la cantidad de
   elementos de 'cad'.
  */
-TCadena ordenar(TCadena cad){return 0;}
+TCadena ordenar(TCadena cad){
+  if (longitud(cad) > 1){
 
+    TLocalizador l = inicioCadena(cad);
+    TLocalizador l2;
+    while (esLocalizador(l))
+    {
+      while (esLocalizador(l2))
+      {
+
+        if(l2>siguiente(l2, cad))
+          intercambiar(l2, siguiente(l2, cad), cad);
+        l2 = siguiente(l2, cad);
+      }
+      l = siguiente(l, cad);
+    }
+  }
+  return cad;
+}
 /*
   Cambia todas las ocurrencias de 'original' por 'nuevo' en los elementos
   de 'cad'.
