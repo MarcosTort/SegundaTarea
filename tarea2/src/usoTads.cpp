@@ -154,22 +154,24 @@ return sgm;
 TCadena ordenar(TCadena cad){
   if (longitud(cad) > 1){
 
-    TLocalizador l = inicioCadena(cad);
+    TLocalizador aux = inicioCadena(cad);
     TLocalizador rec = inicioCadena(cad);
     while (!esFinalCadena(rec, cad))
     {
-      TLocalizador aux = siguiente(l, cad);
-      while (esLocalizador(aux))
+      
+      while (esLocalizador(siguiente(aux, cad)))
       {
-        if(natInfo(infoCadena(l, cad))>natInfo(infoCadena(aux, cad)))
-          intercambiar(l, aux, cad);
-        l = siguiente(l, cad);
+        TLocalizador sig = siguiente(aux, cad);
+        if(natInfo(infoCadena(aux, cad))>natInfo(infoCadena(sig, cad)))
+          intercambiar(aux, sig, cad);
+        aux = siguiente(aux, cad);
       }
       rec = siguiente(rec, cad);
     }
   }
   return cad;
 }
+
 /*
   Cambia todas las ocurrencias de 'original' por 'nuevo' en los elementos
   de 'cad'.
