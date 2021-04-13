@@ -160,9 +160,9 @@ TCadena ordenar(TCadena cad){
     {
       while (esLocalizador(siguiente(l, cad)))
       {
-        TLocalizador l2 = siguiente(l, cad);
-        if(natInfo(infoCadena(l, cad))>natInfo(infoCadena(l2, cad)))
-          cad = intercambiar(l, l2, cad);
+        TLocalizador rec = siguiente(l, cad);
+        if(natInfo(infoCadena(l, cad))>natInfo(infoCadena(rec, cad)))
+          cad = intercambiar(l, rec, cad);
         l = siguiente(l, cad);
       }
       rec = siguiente(rec, cad);
