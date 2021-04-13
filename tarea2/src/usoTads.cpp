@@ -128,7 +128,17 @@ bool sonIgualesCadena(TCadena c1, TCadena c2){
   El tiempo de ejecución en el peor caso es O(n1 + n2), siendo 'n1' u 'n2' la
   cantidad de elementos de 'c1' y 'c2' respectivamente.
  */
-TCadena concatenar(TCadena c1, TCadena c2){return 0;}
+TCadena concatenar(TCadena c1, TCadena c2) {
+	TCadena sgm = copiarSegmento(inicioCadena(c1), finalCadena(c1), c1);
+  TCadena sgm2 = copiarSegmento(inicioCadena(c2), finalCadena(c2), c2);
+	if(sgm == NULL)return sgm2;
+  else if(sgm2 == NULL)
+    return sgm; 
+  else{
+   insertarSegmentoDespues(sgm2, finalCadena(sgm), sgm);
+  }
+return sgm;
+}
 
 /*
   Se ordena 'cad' de manera creciente según los componentes naturales de sus
