@@ -213,15 +213,15 @@ TCadena cambiarTodos(nat original, nat nuevo, TCadena cad){
 TCadena subCadena(nat menor, nat mayor, TCadena cad){
   TCadena sub = crearCadena();
   TLocalizador rec = inicioCadena(cad);
-  TInfo insert;
+  TLocalizador inicioSub = NULL;
+  TLocalizador finalSub = NULL;
+  
   while(esLocalizador(rec)){
-    if ((natInfo(infoCadena(rec, cad)) <= mayor) && (natInfo(infoCadena(rec, cad)) >= menor)){
-      insert = infoCadena(rec, cad);
-      insertarAlFinal(insert, sub);
-    }
+    if(natInfo(infoCadena(rec, cad))<= mayor) finalSub = rec;
+    if ((natInfo(infoCadena(rec, cad)) <= mayor) && (finalSub == NULL)) inicioSub = rec;
     rec = siguiente(rec, cad);
-  }
-
+    }
+  insertarSegmentoDespues(copiarSegmento(inicioSub, finalSub, cad ), finalCadena(sub), sub);
 return sub;
 }
 
