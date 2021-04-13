@@ -210,4 +210,18 @@ TCadena cambiarTodos(nat original, nat nuevo, TCadena cad){
   El tiempo de ejecución en el peor caso es O(n), siendo 'n' la cantidad de
   elementos de 'cad'.
  */
-TCadena subCadena(nat menor, nat mayor, TCadena cad){return 0;}
+TCadena subCadena(nat menor, nat mayor, TCadena cad){
+  TCadena sub = crearCadena();
+  TLocalizador rec = inicioCadena(cad);
+  TInfo insert;
+  while(esLocalizador(rec)){
+    if ((natInfo(infoCadena(rec, cad)) <= mayor) && (natInfo(infoCadena(rec, cad)) >= menor)){
+      insert = infoCadena(rec, cad);
+      insertarAlFinal(insert, sub);
+    }
+    rec = siguiente(rec, cad);
+  }
+
+return sub;
+}
+
