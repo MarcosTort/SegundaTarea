@@ -85,7 +85,8 @@ bool estaOrdenadaPorNaturales(TCadena cad){
         if (natInfo(infoCadena(rec2, cad)) == control){
           contador ++;
         }
-        rec2 = siguiente(rec2, cad);
+        else
+          rec2 = siguiente(rec2, cad);
       }
       rec = siguiente(rec, cad);
     }
