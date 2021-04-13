@@ -217,8 +217,12 @@ TCadena subCadena(nat menor, nat mayor, TCadena cad){
   TLocalizador finalSub = NULL;
   
   while(esLocalizador(rec)){
-    if(natInfo(infoCadena(rec, cad))<= mayor) finalSub = rec;
-    if ((natInfo(infoCadena(rec, cad)) <= mayor) && (finalSub == NULL)) inicioSub = rec;
+    if(natInfo(infoCadena(rec, cad))<= mayor) 
+      finalSub = rec;
+
+    if ((natInfo(infoCadena(rec, cad)) <= mayor) && (inicioSub == NULL)) 
+      inicioSub = rec;
+
     rec = siguiente(rec, cad);
     }
   insertarSegmentoDespues(copiarSegmento(inicioSub, finalSub, cad ), finalCadena(sub), sub);
