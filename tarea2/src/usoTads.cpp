@@ -152,20 +152,20 @@ return sgm;
   elementos de 'cad'.
  */
 TCadena ordenar(TCadena cad){
+  nat i =1;
   if (longitud(cad) > 1){
 
     TLocalizador l = inicioCadena(cad);
-    TLocalizador l2 = inicioCadena(cad);
-    while (esLocalizador(l))
+    while (i<=longitud(cad))
     {
-      while (esLocalizador(l2))
+      while (esLocalizador(siguiente(l, cad)))
       {
-
-        if(l2>siguiente(l2, cad))
-          intercambiar(l2, siguiente(l2, cad), cad);
-        l2 = siguiente(l2, cad);
+        TLocalizador l2 = siguiente(l, cad);
+        if(natInfo(infoCadena(l, cad))>natInfo(infoCadena(l2, cad)))
+          intercambiar(l, l2, cad);
+        l = siguiente(l, cad);
       }
-      l = siguiente(l, cad);
+      i++;
     }
   }
   return cad;
