@@ -158,12 +158,12 @@ TCadena ordenar(TCadena cad){
     TLocalizador rec = inicioCadena(cad);
     while (esLocalizador(siguiente(rec, cad)))
     {
-      
+      TLocalizador aux = siguiente(rec, cad);
       while (esLocalizador(aux))
       {
-        TLocalizador sig = siguiente(aux, cad);
-        if(natInfo(infoCadena(aux, cad))>natInfo(infoCadena(sig, cad)))
-          intercambiar(aux, sig, cad);
+        
+        if(natInfo(infoCadena(rec, cad))>natInfo(infoCadena(aux, cad)))
+          intercambiar(aux, rec, cad);
         aux = siguiente(aux, cad);
       }
       rec = siguiente(rec, cad);
@@ -171,7 +171,6 @@ TCadena ordenar(TCadena cad){
   }
   return cad;
 }
-
 /*
   Cambia todas las ocurrencias de 'original' por 'nuevo' en los elementos
   de 'cad'.
