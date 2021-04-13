@@ -152,11 +152,12 @@ return sgm;
   elementos de 'cad'.
  */
 TCadena ordenar(TCadena cad){
+  nat i =1;
   if (longitud(cad) > 1){
 
     TLocalizador l = inicioCadena(cad);
     TLocalizador rec = inicioCadena(cad);
-    while (esLocalizador(rec))
+    while (!estaOrdenadaPorNaturales(cad))
     {
       while (esLocalizador(siguiente(l, cad)))
       {
@@ -165,7 +166,6 @@ TCadena ordenar(TCadena cad){
           intercambiar(l, l2, cad);
         l = siguiente(l, cad);
       }
-      rec = siguiente(rec, cad);
     }
   }
   return cad;
