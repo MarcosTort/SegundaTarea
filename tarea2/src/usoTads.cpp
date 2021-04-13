@@ -176,8 +176,28 @@ TCadena ordenar(TCadena cad){
   El tiempo de ejecución en el peor caso es O(n), siendo 'n' la cantidad de
   elementos de 'cad'.
  */
-TCadena cambiarTodos(nat original, nat nuevo, TCadena cad){return 0;}
-
+TCadena cambiarTodos(nat original, nat nuevo, TCadena cad){
+  if(!esVaciaCadena(cad)){
+   double real;
+   TInfo info;
+   TInfo info_lib;
+   TLocalizador loc = inicioCadena(cad);
+   TLocalizador remov;
+    while(esLocalizador(loc)){
+      if(natInfo(infoCadena(loc, cad)) == original ){
+         real = realInfo(infoCadena(loc, cad));
+         info = crearInfo(nuevo, real);
+         info_lib = copiaInfo(infoCadena(loc, cad));
+         insertarAntes(info, loc, cad);
+         remov = loc;
+         loc = siguiente(loc, cad);
+         removerDeCadena(remov, cad);
+         liberarInfo(info_lib);
+      }else{ loc = siguiente(loc, cad);
+      }
+    }
+  }
+}
 /*
   Devuelve la 'TCadena' de elementos de 'cad' que cumplen
   "menor <= natInfo (elemento) <= mayor".
