@@ -80,9 +80,9 @@ bool estaOrdenadaPorNaturales(TCadena cad){
     }
     else{
     while((esLocalizador(rec)) && (contador < 1)){
-      control = natInfo(infoCadena(rec2, cad));
+      control = natInfo(infoCadena(rec, cad));
       while((esLocalizador(rec2)) && (contador < 1)){
-        if (natInfo(infoCadena(rec, cad)) == control){
+        if (natInfo(infoCadena(rec2, cad)) == control){
           contador ++;
         }
         rec2 = siguiente(rec2, cad);
